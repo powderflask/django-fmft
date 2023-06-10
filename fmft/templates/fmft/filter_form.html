@@ -1,0 +1,14 @@
+{#  Standard template for including a basic Filter form #}
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        {% if filter %}
+            <form action="" method="get" class="form">
+                <div class="form-elements">
+                    {{ filter.form }}
+                    <span class="form-group"><button class="btn btn-primary pull-right">Filter</button></span>
+                </div>
+            </form>
+        {% endif %}
+    </div>
+</div>

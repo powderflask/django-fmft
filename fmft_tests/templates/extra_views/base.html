@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <style>
+        .navbar {
+            background-color: #333;
+            position: relative;
+            z-index: 999;
+            margin-bottom: 20px;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background: black;
+        }
+
+        .navbar li {
+            display: inline-block;
+        }
+
+        .navbar li a {
+            color: white;
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+        }
+
+        /* Style the dropdown menu */
+        .navbar ul ul {
+            position: absolute;
+            top: 100%;
+            display: none;
+        }
+
+        .navbar ul ul li {
+            display: block;
+        }
+
+        .navbar li:hover ul {
+            display: block;
+        }
+
+        /* Change the background color of dropdown links on hover */
+        .navbar ul ul li a:hover {
+            background-color: #555;
+        }
+
+        .panel {
+            border: solid lightgray 1px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    {% block navbar %}
+        <nav class="navbar">
+            <ul>
+                <li>
+                    <a href="#">Formsets</a>
+                    <ul>
+                        <li><a href="/formset/simple/">Simple</a></li>
+                        <li><a href="/formset/simple/named/">Named</a></li>
+                        <li><a href="/formset/simple/kwargs/">Kwargs</a></li>
+                        <li><a href="/formset/simple_redirect/">Redirect</a></li>
+                        <li><a href="/formset/custom/">Custom</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Model Formsets</a>
+                    <ul>
+                        <li><a href="/modelformset/simple/">Simple</a></li>
+                        <li><a href="/modelformset/exclude/">Exclude</a></li>
+                        <li><a href="/modelformset/custom/">Custom</a></li>
+                        <li><a href="/modelformset/paged/">Paged</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Inlines</a>
+                    <ul>
+                        <li><a href="#">TBA</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">FMFT</a>
+                    <ul>
+                        <li><a href="/filteredtable/simple/">Filtered Table</a></li>
+                        <li><a href="/filteredmodelformset/simple/">Filtered Model Formset</a></li>
+                        <li><a href="/modelformsettable/simple/">Model Formset Table</a></li>
+                        <li><a href="/modelformsettable/deletable/">MFT Deletable</a></li>
+                        <li><a href="/modelformsettable/extra_forms/">MFT Extra Forms</a></li>
+                        <li><a href="/modelformsettable/paginated/">MFT Paginated</a></li>
+                        <li><a href="/filteredmodelformsettable/simple/">Filtered Model Formset Table</a></li>
+                        <li><a href="/filteredmodelformsettable/paginated/">FMFT Paginated</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Other</a>
+                    <ul>
+                        <li><a href="#">TBA</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    {% endblock navbar %}
+
+    {% block content %}
+    {% endblock content %}
+</body>
+</html>

@@ -1,0 +1,10 @@
+bump2version
+wheel
+Sphinx
+twine
+
+tox
+black
+isort
+flake8
+coverage

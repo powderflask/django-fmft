@@ -1,0 +1,263 @@
+[
+{
+  "model": "fmft_tests.order",
+  "pk": 1,
+  "fields": {
+    "name": "Order A",
+    "customer": "",
+    "date_created": "2023-06-10T14:13:44.470",
+    "date_modified": "2023-06-10T14:13:44.470",
+    "action_on_save": false
+  }
+},
+{
+  "model": "fmft_tests.order",
+  "pk": 2,
+  "fields": {
+    "name": "Order B",
+    "customer": "",
+    "date_created": "2023-06-10T14:13:44.474",
+    "date_modified": "2023-06-10T14:13:44.474",
+    "action_on_save": false
+  }
+},
+{
+  "model": "fmft_tests.order",
+  "pk": 3,
+  "fields": {
+    "name": "Order C",
+    "customer": "",
+    "date_created": "2023-06-10T14:13:44.476",
+    "date_modified": "2023-06-10T14:13:44.476",
+    "action_on_save": false
+  }
+},
+{
+  "model": "fmft_tests.item",
+  "pk": 1,
+  "fields": {
+    "name": "Item 0",
+    "sku": "c85dcb3d-d07c",
+    "price": "0.99",
+    "order": 1,
+    "status": 1,
+    "date_placed": "2023-06-10"
+  }
+},
+{
+  "model": "fmft_tests.item",
+  "pk": 2,
+  "fields": {
+    "name": "Item 1",
+    "sku": "87f9a61d-9ed0",
+    "price": "1.99",
+    "order": 1,
+    "status": 0,
+    "date_placed": "2023-06-10"
+  }
+},
+{
+  "model": "fmft_tests.item",
+  "pk": 3,
+  "fields": {
+    "name": "Item 2",
+    "sku": "3fe5090e-1e80",
+    "price": "2.99",
+    "order": 1,
+    "status": 0,
+    "date_placed": "2023-06-10"
+  }
+},
+{
+  "model": "fmft_tests.item",
+  "pk": 4,
+  "fields": {
+    "name": "Item 3",
+    "sku": "2cf1171b-1e39",
+    "price": "3.99",
+    "order": 1,
+    "status": 3,
+    "date_placed": "2023-06-10"
+  }
+},
+{
+  "model": "fmft_tests.item",
+  "pk": 5,
+  "fields": {
+    "name": "Item 4",
+    "sku": "c2872ee2-4357",
+    "price": "4.99",
+    "order": 1,
+    "status": 0,
+    "date_placed": "2023-06-10"
+  }
+},
+{
+  "model": "fmft_tests.item",
+  "pk": 6,
+  "fields": {
+    "name": "Item 5",
+    "sku": "62b7b094-68aa",
+    "price": "5.99",
+    "order": 1,
+    "status": 3,
+    "date_placed": "2023-06-10"
+  }
+},
+{
+  "model": "fmft_tests.item",
+  "pk": 7,
+  "fields": {
+    "name": "Item 6",
+    "sku": "3f8b5bcf-11e7",
+    "price": "6.99",
+    "order": 1,
+    "status": 3,
+    "date_placed": "2023-06-10"
+  }
+},
+{
+  "model": "fmft_tests.item",
+  "pk": 8,
+  "fields": {
+    "name": "Item 7",
+    "sku": "b44b1989-b139",
+    "price": "7.99",
+    "order": 1,
+    "status": 2,
+    "date_placed": "2023-06-10"
+  }
+},
+{
+  "model": "fmft_tests.item",
+  "pk": 9,
+  "fields": {
+    "name": "Item 8",
+    "sku": "bf13194d-518f",
+    "price": "8.99",
+    "order": 1,
+    "status": 1,
+    "date_placed": "2023-06-10"
+  }
+},
+{
+  "model": "fmft_tests.item",
+  "pk": 10,
+  "fields": {
+    "name": "Item 9",
+    "sku": "e076c27e-79bb",
+    "price": "9.99",
+    "order": 1,
+    "status": 3,
+    "date_placed": "2023-06-10"
+  }
+},
+{
+  "model": "fmft_tests.item",
+  "pk": 11,
+  "fields": {
+    "name": "Item 10",
+    "sku": "6fcff64f-93d2",
+    "price": "10.99",
+    "order": 1,
+    "status": 0,
+    "date_placed": "2023-06-10"
+  }
+},
+{
+  "model": "fmft_tests.item",
+  "pk": 12,
+  "fields": {
+    "name": "Item 0",
+    "sku": "0db880e4-203c",
+    "price": "0.99",
+    "order": 2,
+    "status": 2,
+    "date_placed": "2023-06-10"
+  }
+},
+{
+  "model": "fmft_tests.item",
+  "pk": 13,
+  "fields": {
+    "name": "Item 1",
+    "sku": "7ea8b22d-077c",
+    "price": "1.99",
+    "order": 2,
+    "status": 2,
+    "date_placed": "2023-06-10"
+  }
+},
+{
+  "model": "fmft_tests.item",
+  "pk": 14,
+  "fields": {
+    "name": "Item 2",
+    "sku": "7110ffe3-f85c",
+    "price": "2.99",
+    "order": 2,
+    "status": 1,
+    "date_placed": "2023-06-10"
+  }
+},
+{
+  "model": "fmft_tests.item",
+  "pk": 15,
+  "fields": {
+    "name": "Item 3",
+    "sku": "78c157b5-1b4a",
+    "price": "3.99",
+    "order": 2,
+    "status": 0,
+    "date_placed": "2023-06-10"
+  }
+},
+{
+  "model": "fmft_tests.item",
+  "pk": 16,
+  "fields": {
+    "name": "Item 4",
+    "sku": "f4de9ba1-9ee3",
+    "price": "4.99",
+    "order": 2,
+    "status": 1,
+    "date_placed": "2023-06-10"
+  }
+},
+{
+  "model": "fmft_tests.item",
+  "pk": 17,
+  "fields": {
+    "name": "Item 0",
+    "sku": "e408cd5c-f6a5",
+    "price": "0.99",
+    "order": 3,
+    "status": 2,
+    "date_placed": "2023-06-10"
+  }
+},
+{
+  "model": "fmft_tests.item",
+  "pk": 18,
+  "fields": {
+    "name": "Item 1",
+    "sku": "bb9c408b-9947",
+    "price": "1.99",
+    "order": 3,
+    "status": 0,
+    "date_placed": "2023-06-10"
+  }
+},
+{
+  "model": "fmft_tests.item",
+  "pk": 19,
+  "fields": {
+    "name": "Item 2",
+    "sku": "76784f63-5bc4",
+    "price": "2.99",
+    "order": 3,
+    "status": 0,
+    "date_placed": "2023-06-10"
+  }
+}
+]

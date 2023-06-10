@@ -1,0 +1,8 @@
+{#  Standard template for including a basic Table with a Filter #}
+{% load django_tables2 %}
+
+{% include 'fmft/filter_form.html' %}
+
+<div class="table">
+    {% render_table table %}
+</div>

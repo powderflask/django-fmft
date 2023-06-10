@@ -1,0 +1,20 @@
+{# Render a table that contains a formset #}
+{% load django_tables2 %}
+
+{% include 'fmft/filter_form.html' %}
+
+<form method="post">
+    {% csrf_token %}
+
+    <div class="formset-table">
+        {% render_table table %}
+    </div>
+
+    {{ formset.management_form }}
+
+    <div class="form-actions">
+        <button class="btn btn-primary" name="submit"  type="submit">
+            Save
+        </button>
+    </div>
+</form>

@@ -1,0 +1,14 @@
+{# Render a single form field within a table cell. #}
+<div class="fieldWrapper {{ field_class|default:field.name }}">
+    {{ field }}
+    {{ field.errors }}
+</div>
+
+{% comment %}
+{# Better yer, install crispy-forms and override this template with....
+{% load crispy_forms_filters %}
+
+<div class="{{ field_class }}">
+  {{ field|as_crispy_field }}
+</div>
+{% endcomment %}
