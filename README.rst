@@ -32,10 +32,10 @@ Rainbows and unicorns!
 
 Features
 --------
- * use a ModelForm_ / formset_ to define editable fields, add / delete, extra forms, etc.;
- * use a FilterSet_ to define filters the formset's queryset;
- * use a Table_ to layout each record, define paging, sorting, etc.;
- * render the Table_ with its filtered formset_ in just a few lines of template code.
+* use a ModelForm_ / formset_ to define editable fields, add / delete, extra forms, etc.;
+* use a FilterSet_ to define filters the formset's queryset;
+* use a Table_ to layout each record, define paging, sorting, etc.;
+* render the Table_ with its filtered formset_ in just a few lines of template code.
 
 Views
 =====
@@ -54,17 +54,17 @@ Views
 
 Quick Start
 -----------
-  * ``pip install django-fmft``
-  * ``INSTALLED_APPS = [... 'fmft', ...]
-  * optionally, override ``fmft/form_field.html`` with preferred form rendering template
-  * write some Views
+* ``pip install django-fmft``
+* ``INSTALLED_APPS = [... 'fmft', ...]``
+* optionally, override ``fmft/form_field.html`` with preferred form rendering template
+* write some Views
 
 Test App
 ========
- * ``pip install -e  git+https://github.com/powderflask/django-fmft.git``
- * ``python fmft_tests/manage.py migrate fmft_tests``
- * ``python fmft_tests/manage.py loaddata fmft_fixture``
- * ``python fmft_tests/manage.py runserver``
+* ``pip install -e  git+https://github.com/powderflask/django-fmft.git``
+* ``python fmft_tests/manage.py migrate fmft_tests``
+* ``python fmft_tests/manage.py loaddata fmft_fixture``
+* ``python fmft_tests/manage.py runserver``
 
 
 Credits
@@ -92,7 +92,7 @@ Package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_
 
 Notes for Documentation:
 
-Column options `linkify` and `empty_values` are overridden for columns rendered as form fields
+Column options ``linkify`` and ``empty_values`` are overridden for columns rendered as form fields
 
-    * `linkify` is incompatible with a form field representation, so is disabled;
-    * to ensure 'empty' form fields are rendered, `empty_values` is set to () (i.e., render all values)
+    * ``linkify`` is incompatible with a form field representation, so is disabled;
+    * to ensure 'empty' form fields are rendered, ``empty_values`` is set to () (i.e., render all values)
