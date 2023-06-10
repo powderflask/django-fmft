@@ -566,20 +566,3 @@ class TableFormCellTests(FormsetTableTestMixin):
             len(self.table.paginated_rows), self.per_page + self.extra_forms
         )
         self.assertEqual(len(self.formset), len(self.table.paginated_rows))
-
-
-class UtilsTests(SimpleTestCase):
-    def test_add_form_kwargs(self):
-        old = {"blah": 2, "bar": 2}
-        new = utils.add_form_kwargs(old, sick=99, farout=42)
-        self.assertDictEqual(
-            new, {"blah": 2, "form_kwargs": {"sick": 99, "farout": 42}, "bar": 2}
-        )
-
-    def test_update_form_kwargs(self):
-        old = {"blah": 2, "form_kwargs": {"foo": 1}, "bar": 2}
-        new = utils.add_form_kwargs(old, sick=99, farout=42)
-        self.assertDictEqual(
-            new,
-            {"blah": 2, "form_kwargs": {"foo": 1, "sick": 99, "farout": 42}, "bar": 2},
-        )

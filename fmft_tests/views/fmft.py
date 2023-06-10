@@ -20,7 +20,7 @@ class SimpleFilteredTableView(views.FilteredTableView):
         kwargs = super().get_table_kwargs()
         kwargs[
             "empty_text"
-        ] = "No Items were found matching given filter criteria. Tevise your filter."
+        ] = "No Items were found matching given filter criteria. Revise your filter."
         return kwargs
 
 

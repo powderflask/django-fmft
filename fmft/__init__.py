@@ -4,7 +4,6 @@ __author__ = """Joseph Fall"""
 __email__ = "powderflask@gmail.com"
 __version__ = "0.1.0"
 
-from .utils import add_form_kwargs
 from .views import (
     FilteredModelFormsetTableView,
     FilteredModelFormsetView,
@@ -17,5 +16,4 @@ __all__ = [
     "FilteredModelFormsetView",
     "FilteredTableView",
     "ModelFormsetTableView",
-    "add_form_kwargs",
 ]
