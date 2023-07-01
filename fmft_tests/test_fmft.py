@@ -9,7 +9,6 @@ import django_tables2 as tables
 from django.forms import modelformset_factory
 from django.test import RequestFactory, SimpleTestCase, TestCase
 
-from fmft import utils, views
 from fmft.formset_tables import (
     FormAccessor,
     get_formset_table,
