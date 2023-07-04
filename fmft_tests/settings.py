@@ -3,6 +3,9 @@ import os
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
 
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
+
+
 DEBUG = True
 
 DATABASES = {
@@ -46,4 +49,4 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "fmft_tests.urls"
 
-SECRET_KEY = "something not very secret"
+SECRET_KEY = "y&4$z@+14ht4g(d^*yx2c(m9(b=85q0sb_7(tlu!)3l(u78&ni"
