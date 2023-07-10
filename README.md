@@ -88,7 +88,7 @@ Install the django-fmft package from PyPI
 ```bash
 $ pip install django-fmft
 ```
-> For other installation methods see the [*installation doc*](installation.md).
+> For other installation methods see the [*installation doc*](docs/sphinx/installation.md).
 
 Add `'django_fmft'` to `INSTALLED_APPS`:
 ```python
