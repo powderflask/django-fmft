@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# django_fmft documentation build configuration file, created by
+# django_fmft documentation build_old configuration file, created by
 # sphinx-quickstart on Fri Jun  9 13:47:02 2017.
 #
 # This file is execfile()d with the current directory set to its
@@ -26,6 +26,8 @@ import fmft
 
 # -- General configuration ---------------------------------------------
 
+# Default language configuration is english, change it here if needed
+
 # If your documentation needs a minimal Sphinx version, state it here.
 #
 # needs_sphinx = '1.0'
@@ -45,7 +47,7 @@ templates_path = ["_templates"]
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
 #
-source_suffix = ['.rst', '.md']
+source_suffix = ['.md', '.rst']
 
 # The master toctree document.
 master_doc = "index"
@@ -54,7 +56,6 @@ master_doc = "index"
 project = "Django Filtered Model Formset Tables"
 copyright = "2023, Joseph Fall"
 author = "Joseph Fall"
-
 # The version info for the project you're documenting, acts as replacement
 # for |version| and |release|, also used in various other places throughout
 # the built documents.
@@ -69,7 +70,7 @@ release = fmft.__version__
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = None
+language = 'en'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -99,7 +100,7 @@ html_theme = 'sphinx_rtd_theme'
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ["_static"]
+#html_static_path = ["_static"]
 
 
 # -- Options for HTMLHelp output ---------------------------------------

@@ -1,14 +1,13 @@
-"""
-    Filtered Model Formset Table views
-        - re-useable integrations of FilterView, ModelFormsetView, and SingleTableMixin
-    Purpose:
-        - sef of abstract class-based views that provide a declarative syntax to hide the integration details
-    Core Problem:
-        - Filters, ModelFormsets, and Tables all need a queryset
-        - in a F-MF-T view, they need to share the same queryset - getting the MRO right is essential!
-        - Tables need special logic to render a formset, and need the formset available at construct any "extra" rows.
-        - Formset data need to be the [paged] table_data.  Chicken meet Egg.
-"""
+# Filtered Model Formset Table views.md
+#     - re-useable integrations of FilterView, ModelFormsetView, and SingleTableMixin
+# Purpose:
+#     - sef of abstract class-based views.md that provide a declarative syntax to hide the integration details
+# Core Problem:
+#     - Filters, ModelFormsets, and Tables all need a queryset
+#     - in a F-MF-T view, they need to share the same queryset - getting the MRO right is essential!
+#     - Tables need special logic to render a formset, and need the formset available at construct any "extra" rows.
+#     - Formset data need to be the [paged] table_data.  Chicken meet Egg.
+
 
 import django_filters.views as filters
 import django_tables2 as tables
@@ -30,11 +29,13 @@ from . import formset_tables
 class FilteredTableView(tables.SingleTableMixin, filters.FilterView):
     """
     Too easy - this one is batteries included.  Thanks django-tables2 and django-filters, you are awesome.
+
     How does it work:
-        - concrete view provides the base queryset
-        - FilterView.get() sets self.object_list = a filtered version of the base queryset
-        - SingleTableMixin looks for self.object_list, thus loading the filtered queryset
-        - Template should render the filterset and the table (see template filtered_table.html
+    - concrete view provides the base queryset
+    - FilterView.get() sets self.object_list = a filtered version of the base queryset
+    - SingleTableMixin looks for self.object_list, thus loading the filtered queryset
+    - Template should render the filterset and the table (see template filtered_table.html
+
     """
 
     # Minimal configuration:
@@ -82,12 +83,15 @@ class FilteredModelFormsetView(FilterViewMixin, BaseModelFormSetView):
     A Filtered Formset View.
     Not sure how useful this is without a Table, but hey, maybe you just love writing table template logic :-P
     Core Problem:
-        - need filtered object_list to construct formset, but that logic is buried in FilterView.get()
-    Solution: re-write .get() / .post() so the two views play nicely together, with formset.queryset=filterset.qs
+    - need filtered object_list to construct formset, but that logic is buried in FilterView.get()
+
+    Solution: re-write .get() / .post() so the two views.md play nicely together, with formset.queryset=filterset.qs
+
     How does it work:
-        - FilterViewMixin.configure_filterset duplicates logic from BaseFilterView to build the object_list
-        - custom get(), post() mix that logic in with the get() / post() logic from ModelFormSetView
-            to handle constructing, validating, and saving the modelformset
+    - FilterViewMixin.configure_filterset duplicates logic from BaseFilterView to build_old the object_list
+    - custom get(), post() mix that logic in with the get() / post() logic from ModelFormSetView
+    to handle constructing, validating, and saving the modelformset
+
     """
 
     # Minimal configuration:
@@ -186,9 +190,11 @@ class ModelFormsetTableView(BaseModelFormSetSingleTableMixin, ModelFormSetView):
     """
     A ModelFormset View loaded into a table.
     Mix-and-match form fields with non-form fields and customize layout in code instead of in template logic.
+
     How does it work:
-        - form defines which table fields are rendered as form fields, other table columns rendered as usual;
-            ProcessFormsetView does the heavy lifting in post()
+    - form defines which table fields are rendered as form fields, other table columns rendered as usual;
+    ProcessFormsetView does the heavy lifting in post()
+
     """
 
     # Minimal configuration:
@@ -209,8 +215,9 @@ class FilteredModelFormsetTableView(
     The whole enchilada - A Filtered Model Formset View loaded into a table.
     Mix and match from above to get it all.
     How does it work:
-        - form defines which table fields are rendered as form fields, other table columns rendered as usual;
-            ProcessFormsetView does the heavy lifting in post()
+    form defines which table fields are rendered as form fields, other table columns rendered as usual;
+    ProcessFormsetView does the heavy lifting in post()
+
     """
 
     # Minimal configuration:

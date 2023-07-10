@@ -117,7 +117,7 @@ class FilteredTableViewTests(BaseViewTest):
 
     def test_integrity(self):
         """Test the view responds"""
-        # Use this syntax for class-based views.
+        # Use this syntax for class-based views.md.
         response = self.view.as_view()(get_request())
         self.assertEqual(response.status_code, 200)
 
@@ -136,7 +136,7 @@ class FilteredModelFormsetViewTests(BaseViewTest):
 
     def test_integrity(self):
         """Test the view responds"""
-        # Use this syntax for class-based views.
+        # Use this syntax for class-based views.md.
         response = self.view.as_view()(get_request())
         self.assertEqual(response.status_code, 200)
 
@@ -165,7 +165,7 @@ class ModelFormsetTableViewTests(BaseViewTest):
 
     def test_integrity(self):
         """Test the view responds"""
-        # Use this syntax for class-based views.
+        # Use this syntax for class-based views.md.
         response = self.view.as_view()(get_request())
         self.assertEqual(response.status_code, 200)
 
@@ -302,7 +302,7 @@ class FilteredModelFormsetTableViewTests(BaseViewTest):
 
     def test_integrity(self):
         """Test the view responds"""
-        # Use this syntax for class-based views.
+        # Use this syntax for class-based views.md.
         response = self.view.as_view()(get_request())
         self.assertEqual(response.status_code, 200)
 

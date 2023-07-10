@@ -1,14 +1,12 @@
 
 Django Filtered Model Formset Tables
-=======================
+====================================
 
 [![image](https://img.shields.io/pypi/v/django_fmft.svg)](https://pypi.python.org/pypi/django_fmft)
 
 [![image](https://img.shields.io/travis/powderflask/django_fmft.svg)](https://travis-ci.com/powderflask/django_fmft)
 
 [![Documentation Status](https://readthedocs.org/projects/django-fmft/badge/?version=latest)](https://django-fmft.readthedocs.io/en/latest/?version=latest)
-
-### [Updates](https://pyup.io/repos/github/powderflask/django_fmft/)
 
 Re-usable Class-Based Views that integrate
 [django-filter](https://django-filter.readthedocs.io/en/stable/index.html)
@@ -22,6 +20,7 @@ unicorns!
 -   Source: <https://github.com/powderflask/django-fmft>
 -   Documentation: <https://django-fmft.readthedocs.io>.
 
+___
 ## Features
 
 -   use a
@@ -41,43 +40,39 @@ unicorns!
     [formset](https://docs.djangoproject.com/en/dev/topics/forms/modelforms/#model-formsets)
     in just a few lines of template code.
 
+___
 ### Views
 
--
+-   FilteredTableView
 
-    FilteredTableView
-
-    :   Mixes
+    -   Mixes
         [FilterView](https://django-filter.readthedocs.io/en/stable/guide/usage.html#generic-view-configuration)
         with
         [SingleTableMixin](https://django-tables2.readthedocs.io/en/latest/pages/api-reference.html#views-view-mixins-and-paginators)
         for views that Filter tabular data.
 
--
 
-    FilteredModelFormsetView
+-   FilteredModelFormsetView
 
-    :   Integrates
+    -   Integrates
         [FilterView](https://django-filter.readthedocs.io/en/stable/guide/usage.html#generic-view-configuration)
         with
         [ModelFormsetView](https://django-extra-views.readthedocs.io/en/latest/pages/formset-views.html#modelformsetview)
         for views that Filter the queryset used by a formset
 
--
 
-    ModelFormsetTableView
+-   ModelFormsetTableView
 
-    :   Integrates
+    -   Integrates
         [ModelFormsetView](https://django-extra-views.readthedocs.io/en/latest/pages/formset-views.html#modelformsetview)
         with
         [SingleTableMixin](https://django-tables2.readthedocs.io/en/latest/pages/api-reference.html#views-view-mixins-and-paginators)
         for views that render a formset in a Table.
 
--
 
-    FilteredModelFormsetTableView
+-   FilteredModelFormsetTableView
 
-    :   Integrates
+    -   Integrates
         [FilterView](https://django-filter.readthedocs.io/en/stable/guide/usage.html#generic-view-configuration),
         [ModelFormsetView](https://django-extra-views.readthedocs.io/en/latest/pages/formset-views.html#modelformsetview)
         and
@@ -85,14 +80,25 @@ unicorns!
         for views that Filter the queryset used by a formset and render
         the formset in a Table.
 
+
+___
 ## Quick Start
 
--   `pip install django-fmft`
--   `INSTALLED_APPS = [... 'fmft', ...]`
--   optionally, override `fmft/form_field.html` with preferred form
-    rendering template
--   write some Views
+Install the django-fmft package from PyPI
+```bash
+$ pip install django-fmft
+```
+> For other installation methods see the [*installation doc*](installation.md).
 
+Add `'django_fmft'` to `INSTALLED_APPS`:
+```python
+INSTALLED_APPS = [
+    ...
+    'django_fmft',
+    ...
+]
+```
+---
 ### Test App
 
 * `pip install -e  git+https://github.com/powderflask/django-fmft.git`

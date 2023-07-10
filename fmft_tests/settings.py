@@ -5,7 +5,6 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
-
 DEBUG = True
 
 DATABASES = {
