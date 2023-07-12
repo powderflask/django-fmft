@@ -90,7 +90,7 @@ push = true
 "pyproject.toml" = ['version = "{version}"']
 "README.md" = ['Version: {version}']
 "fmft/__init__.py" = ['__version__ = "{version}"']
-"docs/conf.py" = ["release = '{version}'"]
+"docs/source/conf.py" = ["release = '{version}'"]
 
 [tool.black]
 target-version = ["py37","py38","py39","py310","py311"]
