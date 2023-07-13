@@ -7,11 +7,14 @@
 #         Chicken meet Egg.
 
 #     Solution:
-#         - Subclass "normal" Table class by overriding form field Columns & adding DELETE column
+#         - Subclass "normal" Table class by overriding form field Columns & adding
+#           DELETE column
 #         - Construct table with queryset as usual, and optionally paginate
-#         - Construct formset from table.paginated_rows.data, ensuring formset and table share queryset
+#         - Construct formset from table.paginated_rows.data, ensuring formset and table
+#           share queryset
 #         - Append pinned rows for any formset.extra_forms
-#         - Construct a FormAccessor for the formset and retrofit it into the FormFieldColumns in the table.
+#         - Construct a FormAccessor for the formset and retrofit it into the
+#           FormFieldColumns in the table.
 
 from __future__ import annotations
 
@@ -35,7 +38,8 @@ def get_table_queryset(table):
     """
     Get the queryset used by a bound table.
 
-    If the table is paginated, the formset queryset is for the current page only. Otherwise, it includes all table rows.
+    If the table is paginated, the formset queryset is for the current page only.
+    Otherwise, it includes all table rows.
 
     Args:
         table (Table): The table object.
@@ -55,13 +59,15 @@ def get_table_queryset(table):
 # Table / Column configurations derived from a formset
 def get_extra_columns(formset):
     """
-    Return a list of 2-tuples suitable for Table(..., extra_columns) for extra columns needed for the given formset.
+    Return a list of 2-tuples suitable for Table(..., extra_columns) for extra columns
+    needed for the given formset.
 
     Args:
         formset (FormSet): The formset object.
 
     Returns:
-        List: A list of 2-tuples, where each tuple contains the column name and its corresponding Table Column.
+        List: A list of 2-tuples, where each tuple contains the column name and its
+        corresponding Table Column.
     """
     return (
         [
@@ -113,9 +119,11 @@ def set_table_forms(formset, table):
     """
     Hack the formset forms into any FormFieldsColumns in the table.
 
-    This is the core black hackery in FMFT - at least it is contained to code defined in this module.
+    This is the core black hackery in FMFT - at least it is contained to code defined in
+    this module.
     Tightly Coupled to the `forms` attribute in FormFieldsColumn.
-    Caution: this mutates table.columns.column - only apply this to a dynamically generated Table class!
+    Caution: this mutates table.columns.column - only apply this to a dynamically
+    generated Table class!
 
     Args:
         formset (FormSet): The formset object.
@@ -130,7 +138,8 @@ def set_table_forms(formset, table):
 
 class FormAccessor:
     """
-    A simple API for accessing the forms & fields in a modelformset, indexed by the form.instance
+    A simple API for accessing the forms & fields in a modelformset, indexed by the
+    form.instance
     """
 
     def __init__(self, formset):
@@ -238,8 +247,8 @@ class FormAccessor:
 class ExtensibleTemplateColumn(tables.TemplateColumn):
     """Adds ability to dynamically extend render context for TemplateColumn"""
 
-    # TODO: contribute this back to django-tables2 in PR
-    #      minor re-factor to factor out get_row_context, does not change API or behaviour at all
+    # TODO: contribute this back to django-tables2 in PR -- minor re-factor to factor
+    #       out get_row_context, does not change API or behaviour at all
     def get_row_context(self, record, table, value, bound_column, bound_row):
         """
         Return a dictionary of context for the given record.
@@ -289,10 +298,14 @@ class ExtensibleTemplateColumn(tables.TemplateColumn):
 
 
 class FormFieldsColumn(ExtensibleTemplateColumn):
-    """A Column that renders its contents as a form field - for very simple use-cases, this might do.
-    Given the template requires a bound form field, the formset usually needs be constructed ahead of table...
-    but for Table features like paging and sorting to work, formset needs to be constructed from table data...
-    yet, to supply the `fields` context, the formset needs to be constructed - chicken meet egg
+    """A Column that renders its contents as a form field - for very simple use-cases,
+    this might do.
+
+    Given the template requires a bound form field, the formset usually needs be
+    constructed ahead of table... but for Table features like paging and sorting to
+    work, formset needs to be constructed from table data... yet, to supply the `fields`
+    context, the formset needs to be constructed - chicken meet egg
+
     Use get_table and get_formset to do this bit of black-hackery for you.
     This class is coupled to some private API details about table Columns.
     """
@@ -311,10 +324,14 @@ class FormFieldsColumn(ExtensibleTemplateColumn):
 
         Args:
             forms (callable): A callable that returns the Form for a given object.
-            form_fields (Iterable[str], optional): A tuple of form field names to render in the column. Defaults to None.
-            template_code (str, optional): The template code for rendering the column. Defaults to None.
-            template_name (str, optional): The template name for rendering the column. Defaults to "fmft/form_fields.html".
-            extra_context (dict, optional): Additional context to pass to the template. Defaults to None.
+            form_fields (Iterable[str], optional): A tuple of form field names to render
+                in the column. Defaults to None.
+            template_code (str, optional): The template code for rendering the column.
+                Defaults to None.
+            template_name (str, optional): The template name for rendering the column.
+                Defaults to "fmft/form_fields.html".
+            extra_context (dict, optional): Additional context to pass to the template.
+                Defaults to None.
             **extra: Additional keyword arguments to pass to the parent class.
         """
         super().__init__(
@@ -328,7 +345,8 @@ class FormFieldsColumn(ExtensibleTemplateColumn):
         self.form_fields = form_fields
 
     def get_row_context(self, record, table, value, bound_column, bound_row):
-        """Add `fields` to context - a tuple of form fields to render in this column for a given record
+        """Add `fields` to context - a tuple of form fields to render in this column for
+        a given record
 
         Args:
             record (object): The record object.
@@ -372,8 +390,10 @@ class FormFieldsColumn(ExtensibleTemplateColumn):
         Args:
             forms (callable): A callable that returns the Form for a given object.
             other (Column): Another column to base the FormFieldsColumn on.
-            form_fields (Iterable[str], optional): A tuple of form field names to render in the column. Defaults to None.
-            **kwargs: Additional keyword arguments to pass to the FormFieldsColumn constructor.
+            form_fields (Iterable[str], optional): A tuple of form field names to render
+            in the column. Defaults to None.
+            **kwargs: Additional keyword arguments to pass to the FormFieldsColumn
+            constructor.
 
         Returns:
             FormFieldsColumn: The created FormFieldsColumn object.
@@ -388,7 +408,8 @@ class FormFieldsColumn(ExtensibleTemplateColumn):
             order_by=None
             if other.order_by is None
             else tuple(other.order_by),  # Coupling to table internal API
-            # empty_values=(),  # Don't "inherit" from other column - empty form fields should still be rendered
+            # empty_values=(),  # Don't "inherit" from other column - empty form fields
+            # should still be rendered
             localize=other.localize,
             footer=other._footer,  # HACK - access to table protected member
             exclude_from_export=other.exclude_from_export,
@@ -448,7 +469,8 @@ def get_table(
       - adds a Table mixins to handle "extra" forms and "Delete" column, as needed
       - overrides columns defined by form fields with FormFieldColumn
 
-    Note: the matching formset should be created with get_formset to finish stitching the forms themselves into the table.
+    Note: the matching formset should be created with get_formset to finish stitching
+          the forms themselves into the table.
 
     Args:
         queryset: The queryset for the table object.
@@ -461,7 +483,8 @@ def get_table(
         tables.Table: A table object.
 
     """
-    # an empty FormAccessor - we don't have the actual forms until the formset is constructed.
+    # an empty FormAccessor - we don't have the actual forms until the formset is
+    # constructed.
     formset_kwargs["queryset"] = queryset.none()
     form_accessor = FormAccessor(formset_class(**formset_kwargs))
 
@@ -471,7 +494,8 @@ def get_table(
         "extra_columns", []
     )  # we'll add 'em directly to the Table class
 
-    # create a FormFieldsTable subclass, replacing all form field Columns with FormFieldColumns, et voila
+    # create a FormFieldsTable subclass, replacing all form field Columns with
+    # FormFieldColumns, et voila
     table_class = get_table_class(base_class, extra_columns, form_accessor)
     return table_class(data=queryset, **table_kwargs)
 
@@ -516,17 +540,20 @@ def get_formset_table(
     Returns:
         Tuple[formset_class, tables.Table]: An integrated formset and table pair.
 
-    Shortcut for building the table, pagination, and formset together, mainly intended for testing.
+    Shortcut for building the table, pagination, and formset together, mainly intended
+    for testing.
 
     """
-    # Step 1: build_old a form-ready table subclass based on the formset and instantiate the table
+    # Step 1: build_old a form-ready table subclass based on the formset and instantiate
+    # the table
     table = get_table(
         queryset, table_class, table_kwargs, formset_class, formset_kwargs
     )
     if paginate:
         table.paginate(**paginate)
 
-    # Step 2: build_old the formset using the table's data and stitch the forms back into the table
+    # Step 2: build_old the formset using the table's data and stitch the forms back
+    # into the table
     formset = get_formset(table, formset_class, formset_kwargs)
 
     return formset, table

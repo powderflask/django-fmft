@@ -3,7 +3,7 @@ from invoke import task
 
 @task(name="build")
 def clean_build(c):
-    """ Remove build artifacts """
+    """Remove build artifacts"""
     print("Cleaning build artifacts...")
     c.run("rm -fr build/")
     c.run("rm -fr dist/")
@@ -15,7 +15,7 @@ def clean_build(c):
 
 @task(name="cache")
 def clean_cache(c):
-    """ Remove Python file artifacts """
+    """Remove Python file artifacts"""
     print("Cleaning Python file artifacts...")
     c.run("find . -name '*.pyc' -exec rm -f {} +")
     c.run("find . -name '*.pyo' -exec rm -f {} +")
@@ -26,7 +26,7 @@ def clean_cache(c):
 
 @task(name="test")
 def clean_test(c):
-    """ Remove test and coverage artifacts """
+    """Remove test and coverage artifacts"""
     print("Cleaning test/coverage artifacts...")
     c.run("rm -fr .tox/")
     c.run("rm -f .coverage")
@@ -37,5 +37,5 @@ def clean_test(c):
 
 @task(name="all", pre=[clean_build, clean_cache, clean_test])
 def clean_all(c):
-    """ Remove all build, test, coverage, and Python artifacts """
+    """Remove all build, test, coverage, and Python artifacts"""
     print("All clean! :)")

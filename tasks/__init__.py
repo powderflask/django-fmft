@@ -3,7 +3,8 @@ try:
 except ModuleNotFoundError:
     import tomli as tomllib
 
-from invoke import task, Collection
+from invoke import Collection, task
+
 from . import clean, docs, pypi
 
 
