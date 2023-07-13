@@ -56,7 +56,6 @@ test = [
     "pytest-sugar",
 ]
 utils = [
-    "tomli; python_version < '3.11'",
     "invoke",
     "bumpver",
     "build",
@@ -76,7 +75,7 @@ Repository = "https://github.com/powderflask/django_fmft"
 include-package-data = true  # True by default, declarations in MANIFEST.in
 
 [tool.setuptools.packages.find]
-include = ["fmft", "fmft.*"]
+include = ["fmft", "fmft.*", "fmft_tests", "fmft_tests.*"]
 
 [tool.bumpver]
 current_version = "0.1.0"
@@ -90,7 +89,7 @@ push = true
 "pyproject.toml" = ['version = "{version}"']
 "README.md" = ['Version: {version}']
 "fmft/__init__.py" = ['__version__ = "{version}"']
-"docs/source/conf.py" = ["release = '{version}'"]
+"docs/source/conf.py" = ["version = '{version}'", "release = '{version}'"]
 
 [tool.black]
 target-version = ["py37","py38","py39","py310","py311"]
