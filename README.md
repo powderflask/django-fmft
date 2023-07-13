@@ -1,46 +1,42 @@
+# Django Filtered Model Formset Tables
 
-Django Filtered Model Formset Tables
-====================================
-
-[![image](https://img.shields.io/pypi/v/django_fmft.svg)](https://pypi.python.org/pypi/django_fmft)
-
-[![image](https://img.shields.io/travis/powderflask/django_fmft.svg)](https://travis-ci.com/powderflask/django_fmft)
-
+[![PyPI Version](https://img.shields.io/pypi/v/django_fmft.svg)](https://pypi.python.org/pypi/django_fmft)
 [![Documentation Status](https://readthedocs.org/projects/django-fmft/badge/?version=latest)](https://django-fmft.readthedocs.io/en/latest/?version=latest)
 
+Version: 0.1.0
+
 Re-usable Class-Based Views that integrate
-[django-filter](https://django-filter.readthedocs.io/en/stable/index.html)
-and
+[django-filter](https://django-filter.readthedocs.io/en/stable/index.html) and
 [django-tables2](https://django-tables2.readthedocs.io/en/latest/index.html)
 with model formsets. Render and process a user-filterable, user-sortable
 modelformset in a table with just a few lines of code. Rainbows and
 unicorns!
 
--   Free software: MIT license
--   Source: <https://github.com/powderflask/django-fmft>
--   Documentation: <https://django-fmft.readthedocs.io>.
+Documentation: <https://django-fmft.readthedocs.io>
 
-___
+Django Filtered Model Formset Tables is free software distributed under the MIT License.
+
+
 ## Features
 
--   use a
+-   Use a
     [ModelForm](https://docs.djangoproject.com/en/dev/topics/forms/modelforms/)
     /
     [formset](https://docs.djangoproject.com/en/dev/topics/forms/modelforms/#model-formsets)
-    to define editable fields, add / delete, extra forms, etc.;
--   use a
+    to define editable fields, add / delete, extra forms, etc.
+-   Use a
     [FilterSet](https://django-filter.readthedocs.io/en/stable/guide/usage.html#the-filter)
-    to define filters the formset\'s queryset;
--   use a
+    to define filters the formset's queryset
+-   Use a
     [Table](https://django-tables2.readthedocs.io/en/latest/index.html)
-    to layout each record, define paging, sorting, etc.;
--   render the
+    to lay out each record, define paging, sorting, etc.
+-   Render the
     [Table](https://django-tables2.readthedocs.io/en/latest/index.html)
     with its filtered
     [formset](https://docs.djangoproject.com/en/dev/topics/forms/modelforms/#model-formsets)
-    in just a few lines of template code.
+    in just a few lines of template code
 
-___
+
 ### Views
 
 -   FilteredTableView
@@ -81,30 +77,31 @@ ___
         the formset in a Table.
 
 
-___
 ## Quick Start
 
-Install the django-fmft package from PyPI
-```bash
-$ pip install django-fmft
-```
-> For other installation methods see the [*installation doc*](docs/sphinx/installation.md).
+1. Install the django-fmft package from PyPI
+   ```bash
+   $ pip install django-fmft
+   ```
 
-Add `'django_fmft'` to `INSTALLED_APPS`:
-```python
-INSTALLED_APPS = [
-    ...
-    'django_fmft',
-    ...
-]
-```
----
-### Test App
+   > For other installation methods see [*Installation*](docs/source/installation.md).
 
-* `pip install -e  git+https://github.com/powderflask/django-fmft.git`
-* `python fmft_tests/manage.py migrate fmft_tests`
-* `python fmft_tests/manage.py loaddata fmft_fixture`
-* `python fmft_tests/manage.py runserver`
+2. Add `'django_fmft'` to `INSTALLED_APPS`:
+   ```python
+   INSTALLED_APPS = [
+       ...
+       'django_fmft',
+       ...
+   ]
+   ```
+
+### Try Out the Test App
+
+1. `pip install -e git+https://github.com/powderflask/django-fmft.git#egg=django-fmft`
+2. `python fmft_tests/manage.py migrate fmft_tests`
+3. `python fmft_tests/manage.py loaddata fmft_fixture`
+4. `python fmft_tests/manage.py runserver`
+
 
 ## Credits
 
@@ -112,10 +109,11 @@ This package just glues together the amazing functionality provided by
 [django-filter](https://django-filter.readthedocs.io/en/stable/index.html),
 [django-tables2](https://django-tables2.readthedocs.io/en/latest/index.html),
 and
-[django-extra-views](https://django-extra-views.readthedocs.io/en/latest/index.html)
+[django-extra-views](https://django-extra-views.readthedocs.io/en/latest/index.html).
 
+<br>
 
-Notes for Documentation:
+#### *Notes for Documentation*:
 
 Column options `linkify` and `empty_values` are overridden for columns
 rendered as form fields
