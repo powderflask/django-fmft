@@ -29,7 +29,7 @@ TEMPLATES = [
 INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.auth",
-    "fmft_tests",
+    "demo",
     "fmft",
     "django_tables2",
     "django_filters",
@@ -46,6 +46,6 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "fmft_tests.urls"
+ROOT_URLCONF = "demo.urls"
 
 SECRET_KEY = "y&4$z@+14ht4g(d^*yx2c(m9(b=85q0sb_7(tlu!)3l(u78&ni"

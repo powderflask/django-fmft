@@ -3,12 +3,9 @@
 import os
 import sys
 
-# Manage.py was originally in fmft_tests but moved into root dir. to fix pytest issues
-# TODO: Need permanent solution for manage.py location
-
 
 def main():
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "fmft_tests.settings")
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "demo.settings")
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

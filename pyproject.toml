@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "django_fmft"
 version = "0.1.0"
-requires-python = ">=3.7, <4.0"  # TODO: Update min Python version requirement
+requires-python = ">=3.7, <4.0"
 description = "Class-based Views that integrate django-filters and django-tables2 with model formsets."
 readme = "README.md"
 license = {file = "LICENSE"}
@@ -75,7 +75,7 @@ Repository = "https://github.com/powderflask/django_fmft"
 include-package-data = true  # True by default, declarations in MANIFEST.in
 
 [tool.setuptools.packages.find]
-include = ["fmft", "fmft.*", "fmft_tests", "fmft_tests.*"]
+include = ["fmft", "fmft.*"]
 
 [tool.bumpver]
 current_version = "0.1.0"

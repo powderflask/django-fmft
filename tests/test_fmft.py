@@ -9,17 +9,10 @@ import django_tables2 as tables
 from django.forms import modelformset_factory
 from django.test import RequestFactory, SimpleTestCase, TestCase
 
-from fmft.formset_tables import (
-    FormAccessor,
-    get_formset_table,
-    get_formset_table_kwargs,
-    get_table_queryset,
-)
-
-from .forms import InlineItemForm, ItemForm
-from .models import STATUS_CHOICES, Item, Order
-from .tables import ItemTable
-from .views import (
+from demo.forms import InlineItemForm, ItemForm
+from demo.models import STATUS_CHOICES, Item, Order
+from demo.tables import ItemTable
+from demo.views import (
     DeletableModelFormsetTableView,
     ExtrasModelFormsetTableView,
     PaginatedFilteredModelFormsetTableView,
@@ -28,6 +21,12 @@ from .views import (
     SimpleFilteredModelFormsetView,
     SimpleFilteredTableView,
     SimpleModelFormsetTableView,
+)
+from fmft.formset_tables import (
+    FormAccessor,
+    get_formset_table,
+    get_formset_table_kwargs,
+    get_table_queryset,
 )
 
 # Rendered field content have are dependent on form_field.html
