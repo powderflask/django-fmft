@@ -92,9 +92,9 @@ Django Filtered Model Formset Tables is free software distributed under the MIT 
 ### Try Out the Test App
 
 1. `pip install -e git+https://github.com/powderflask/django-fmft.git#egg=django-fmft`
-2. `python fmft_tests/manage.py migrate fmft_tests`
-3. `python fmft_tests/manage.py loaddata fmft_fixture`
-4. `python fmft_tests/manage.py runserver`
+2. `python manage.py migrate demo`
+3. `python manage.py loaddata demo/fmft_fixture.json`
+4. `python manage.py runserver`
 
 
 ## Credits
