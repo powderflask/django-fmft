@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "django_fmft"
 version = "0.1.0"
-requires-python = ">=3.7, <4.0"
+requires-python = ">=3.8, <4.0"
 description = "Class-based Views that integrate django-filters and django-tables2 with model formsets."
 readme = "README.md"
 license = {file = "LICENSE"}
@@ -92,7 +92,7 @@ push = true
 "docs/source/conf.py" = ["version = '{version}'", "release = '{version}'"]
 
 [tool.black]
-target-version = ["py37","py38","py39","py310","py311"]
+target-version = ["py38","py39","py310","py311"]
 
 [tool.isort]
 profile = "black"
