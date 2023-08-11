@@ -1,8 +1,8 @@
 # Utilities for integrating tables that render formsets.
 #     Core Challenge:
 #         - Filter, ModelFormset, and Table all need to share the same queryset
-#         - Tables need special logic to render the form elements,
-#             and need the formset available at construct any "extra form" rows.
+#         - Tables need special logic to render the form elements
+#             and need the formset available to construct any "extra form" rows.
 #         - Formset data needs to be the [paged] table_data.
 #         Chicken meet Egg.
 

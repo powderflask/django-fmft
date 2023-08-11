@@ -4,11 +4,11 @@
 :maxdepth: 2
 :caption: "Table of Contents:"
 
-README
+README_REF
 installation
 example_views
 MODULES
-AUTHORS
-CONTRIBUTING
-HISTORY
+authors
+contributing
+history
 ```
