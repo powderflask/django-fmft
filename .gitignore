@@ -18,8 +18,8 @@ htmlcov/
 
 # Sphinx documentation
 docs/build/
-docs/_static/
-docs/_templates/
+docs/source/_static/
+docs/source/_templates/
 
 # Django databases
 db.sqlite3
