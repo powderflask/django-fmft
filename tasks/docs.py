@@ -2,8 +2,7 @@ from invoke import task
 
 
 def make(c, command):
-    c.run("cd docs")
-    c.run(f"make {command}")
+    c.run(f"cd docs; make {command}")
 
 
 @task

@@ -5,8 +5,6 @@ from invoke import task
 def clean_build(c):
     """Remove build artifacts"""
     print("Cleaning build artifacts...")
-    c.run("rm -fr build/")
-    c.run("rm -fr dist/")
     c.run("rm -fr .eggs/")
     c.run("find . -name '*.egg-info' -exec rm -fr {} +")
     c.run("find . -name '*.egg' -exec rm -f {} +")
