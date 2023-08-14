@@ -26,6 +26,7 @@ TEMPLATES = [
     }
 ]
 
+
 INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.auth",

@@ -5,6 +5,11 @@
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
+import os
+import sys
+sys.path.insert(0, os.path.abspath("../../"))
+
+django_settings = "demo.settings"
 
 project = "Django Filtered Model Formset Tables"
 copyright = "2023, powderflask"
@@ -30,6 +35,7 @@ extensions = [
     "sphinx.ext.viewcode",
     "sphinx.ext.autodoc",
     "sphinx.ext.napoleon",
+    "sphinxcontrib_django",
 ]
 
 templates_path = ["_templates"]

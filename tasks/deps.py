@@ -18,17 +18,17 @@ def pin(c, optional=False, docs=False):
 
 
 @task
-def upgrade(c, optional=False, docs=False):
+def upgrade(c, optional=False, docs=False, all=False):
     """Force update all core [and optional] dependencies in requirements files"""
     print("Updating requirements files...")
     c.run(
         "pip-compile --resolver=backtracking --upgrade -o requirements.txt pyproject.toml"
     )
-    if optional:
+    if optional or all:
         c.run(
             "pip-compile --resolver=backtracking --all-extras --upgrade -o requirements_dev.txt pyproject.toml"
         )
-    if docs:
+    if docs or all:
         c.run(
             "pip-compile --resolver=backtracking --extra=docs --upgrade -o docs/requirements_docs.txt pyproject.toml"
         )
@@ -39,7 +39,7 @@ def upgrade(c, optional=False, docs=False):
 def install(c, optional=False):
     """Install all core [and optional] dependencies"""
     print("Installing dependencies...")
-    c.run("pip-sync requirements.txt")
+    c.run("pip install -r requirements.txt")
     if optional:
-        c.run("pip-sync requirements_dev.txt")
+        c.run("pip install -r requirements_dev.txt")
     print("Done.")

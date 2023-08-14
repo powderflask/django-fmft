@@ -10,13 +10,11 @@ asgiref==3.7.2
     # via django
 babel==2.12.1
     # via sphinx
-certifi==2023.5.7
+certifi==2023.7.22
     # via requests
 charset-normalizer==3.2.0
     # via requests
-colorama==0.4.6
-    # via sphinx
-django==4.2.3
+django==4.2.4
     # via
     #   django-extra-views
     #   django-filter
@@ -57,9 +55,9 @@ myst-parser==2.0.0
     # via django-fmft (pyproject.toml)
 packaging==23.1
     # via sphinx
-pygments==2.15.1
+pygments==2.16.1
     # via sphinx
-pyyaml==6.0
+pyyaml==6.0.1
     # via myst-parser
 requests==2.31.0
     # via sphinx
@@ -70,30 +68,33 @@ sphinx==6.2.1
     #   django-fmft (pyproject.toml)
     #   myst-parser
     #   sphinx-rtd-theme
+    #   sphinxcontrib-applehelp
+    #   sphinxcontrib-devhelp
+    #   sphinxcontrib-htmlhelp
     #   sphinxcontrib-jquery
+    #   sphinxcontrib-qthelp
+    #   sphinxcontrib-serializinghtml
 sphinx-rtd-theme==1.2.2
     # via django-fmft (pyproject.toml)
-sphinxcontrib-applehelp==1.0.4
+sphinxcontrib-applehelp==1.0.6
     # via sphinx
-sphinxcontrib-devhelp==1.0.2
+sphinxcontrib-devhelp==1.0.4
     # via sphinx
-sphinxcontrib-htmlhelp==2.0.1
+sphinxcontrib-htmlhelp==2.0.3
     # via sphinx
 sphinxcontrib-jquery==4.1
     # via sphinx-rtd-theme
 sphinxcontrib-jsmath==1.0.1
     # via sphinx
-sphinxcontrib-qthelp==1.0.3
+sphinxcontrib-qthelp==1.0.5
     # via sphinx
-sphinxcontrib-serializinghtml==1.1.5
+sphinxcontrib-serializinghtml==1.1.7
     # via sphinx
 sqlparse==0.4.4
     # via django
 typing-extensions==4.7.1
     # via asgiref
-tzdata==2023.3
-    # via django
-urllib3==2.0.3
+urllib3==2.0.4
     # via requests
-zipp==3.16.0
+zipp==3.16.2
     # via importlib-metadata

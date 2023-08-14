@@ -18,33 +18,29 @@ bleach==6.0.0
     # via readme-renderer
 build==0.10.0
     # via django-fmft (pyproject.toml)
-bumpver==2023.1124
+bumpver==2023.1126
     # via django-fmft (pyproject.toml)
 cachetools==5.3.1
     # via tox
-certifi==2023.5.7
+certifi==2023.7.22
     # via requests
-chardet==5.1.0
+chardet==5.2.0
     # via tox
 charset-normalizer==3.2.0
     # via requests
-click==8.1.4
+click==8.1.6
     # via
     #   black
     #   bumpver
 colorama==0.4.6
     # via
-    #   build
     #   bumpver
-    #   click
-    #   pytest
-    #   sphinx
     #   tox
 coverage[toml]==7.2.7
     # via pytest-cov
-distlib==0.3.6
+distlib==0.3.7
     # via virtualenv
-django==4.2.3
+django==4.2.4
     # via
     #   django-extra-views
     #   django-filter
@@ -68,7 +64,7 @@ filelock==3.12.2
     # via
     #   tox
     #   virtualenv
-flake8==6.0.0
+flake8==6.1.0
     # via
     #   django-fmft (pyproject.toml)
     #   flake8-bugbear
@@ -114,7 +110,7 @@ mdit-py-plugins==0.4.0
     # via myst-parser
 mdurl==0.1.2
     # via markdown-it-py
-more-itertools==9.1.0
+more-itertools==10.1.0
     # via jaraco-classes
 mypy-extensions==1.0.0
     # via black
@@ -129,13 +125,11 @@ packaging==23.1
     #   pytest-sugar
     #   sphinx
     #   tox
-pathlib2==2.3.7.post1
-    # via bumpver
-pathspec==0.11.1
+pathspec==0.11.2
     # via black
 pkginfo==1.9.6
     # via twine
-platformdirs==3.8.1
+platformdirs==3.10.0
     # via
     #   black
     #   tox
@@ -144,11 +138,11 @@ pluggy==1.2.0
     # via
     #   pytest
     #   tox
-pycodestyle==2.10.0
+pycodestyle==2.11.0
     # via flake8
-pyflakes==3.0.1
+pyflakes==3.1.0
     # via flake8
-pygments==2.15.1
+pygments==2.16.1
     # via
     #   readme-renderer
     #   rich
@@ -169,9 +163,7 @@ pytest-django==4.5.2
     # via django-fmft (pyproject.toml)
 pytest-sugar==0.9.7
     # via django-fmft (pyproject.toml)
-pywin32-ctypes==0.2.2
-    # via keyring
-pyyaml==6.0
+pyyaml==6.0.1
     # via myst-parser
 readme-renderer==40.0
     # via twine
@@ -184,12 +176,10 @@ requests-toolbelt==1.0.0
     # via twine
 rfc3986==2.0.0
     # via twine
-rich==13.4.2
+rich==13.5.2
     # via twine
 six==1.16.0
-    # via
-    #   bleach
-    #   pathlib2
+    # via bleach
 snowballstemmer==2.2.0
     # via sphinx
 sphinx==6.2.1
@@ -197,22 +187,27 @@ sphinx==6.2.1
     #   django-fmft (pyproject.toml)
     #   myst-parser
     #   sphinx-rtd-theme
+    #   sphinxcontrib-applehelp
+    #   sphinxcontrib-devhelp
+    #   sphinxcontrib-htmlhelp
     #   sphinxcontrib-jquery
+    #   sphinxcontrib-qthelp
+    #   sphinxcontrib-serializinghtml
 sphinx-rtd-theme==1.2.2
     # via django-fmft (pyproject.toml)
-sphinxcontrib-applehelp==1.0.4
+sphinxcontrib-applehelp==1.0.6
     # via sphinx
-sphinxcontrib-devhelp==1.0.2
+sphinxcontrib-devhelp==1.0.4
     # via sphinx
-sphinxcontrib-htmlhelp==2.0.1
+sphinxcontrib-htmlhelp==2.0.3
     # via sphinx
 sphinxcontrib-jquery==4.1
     # via sphinx-rtd-theme
 sphinxcontrib-jsmath==1.0.1
     # via sphinx
-sphinxcontrib-qthelp==1.0.3
+sphinxcontrib-qthelp==1.0.5
     # via sphinx
-sphinxcontrib-serializinghtml==1.1.5
+sphinxcontrib-serializinghtml==1.1.7
     # via sphinx
 sqlparse==0.4.4
     # via django
@@ -220,17 +215,16 @@ termcolor==2.3.0
     # via pytest-sugar
 toml==0.10.2
     # via bumpver
-tomli==2.0.1 ; python_version < "3.11"
+tomli==2.0.1
     # via
     #   black
     #   build
     #   coverage
-    #   django-fmft (pyproject.toml)
     #   pyproject-api
     #   pyproject-hooks
     #   pytest
     #   tox
-tox==4.6.4
+tox==4.7.0
     # via django-fmft (pyproject.toml)
 twine==4.0.2
     # via django-fmft (pyproject.toml)
@@ -238,15 +232,13 @@ typing-extensions==4.7.1
     # via
     #   asgiref
     #   black
-tzdata==2023.3
-    # via django
-urllib3==2.0.3
+urllib3==2.0.4
     # via
     #   requests
     #   twine
-virtualenv==20.23.1
+virtualenv==20.24.3
     # via tox
 webencodings==0.5.1
     # via bleach
-zipp==3.16.0
+zipp==3.16.2
     # via importlib-metadata
