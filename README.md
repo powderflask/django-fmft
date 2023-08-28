@@ -28,6 +28,16 @@ Django Filtered Model Formset Tables is free software distributed under the MIT 
 -   Render the [Table][9] with its filtered [formset][10] in just a few lines of 
     template code
 
+```{Note}
+Column options `linkify` and `empty_values` are overridden for columns
+rendered as form fields
+
+> -   `linkify` is incompatible with a form field representation, so is
+>     disabled;
+> -   to ensure \'empty\' form fields are rendered, `empty_values` is
+>     set to () (i.e., render all values)
+```
+
 [5]: <https://docs.djangoproject.com/en/dev/topics/forms/modelforms/>
 [6]: <https://docs.djangoproject.com/en/dev/topics/forms/modelforms/#model-formsets>
 [7]: <https://django-filter.readthedocs.io/en/stable/guide/usage.html#the-filter>
@@ -105,14 +115,3 @@ This package just glues together the amazing functionality provided by
 [20]: <https://django-filter.readthedocs.io/en/stable/index.html>
 [21]: <https://django-tables2.readthedocs.io/en/latest/index.html>
 [22]: <https://django-extra-views.readthedocs.io/en/latest/index.html>
-
-
-## *Notes for Documentation*:
-
-Column options `linkify` and `empty_values` are overridden for columns
-rendered as form fields
-
-> -   `linkify` is incompatible with a form field representation, so is
->     disabled;
-> -   to ensure \'empty\' form fields are rendered, `empty_values` is
->     set to () (i.e., render all values)
