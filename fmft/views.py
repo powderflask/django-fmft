@@ -1,16 +1,17 @@
-# Filtered Model Formset Table views.md
-#     - re-useable integrations of FilterView, ModelFormsetView, and SingleTableMixin
-# Purpose:
-#     - sef of abstract class-based views.md that provide a declarative syntax to hide
-#       the integration details
-# Core Problem:
-#     - Filters, ModelFormsets, and Tables all need a queryset
-#     - in a F-MF-T view, they need to share the same queryset - getting the MRO right
-#       is essential!
-#     - Tables need special logic to render a formset, and need the formset available at
-#       construct any "extra" rows.
-#     - Formset data need to be the [paged] table_data.  Chicken meet Egg.
-
+"""
+Filtered Model Formset Table views.md
+    - re-useable integrations of FilterView, ModelFormsetView, and SingleTableMixin
+Purpose:
+    - sef of abstract class-based views.md that provide a declarative syntax to hide
+      the integration details
+Core Problem:
+    - Filters, ModelFormsets, and Tables all need a queryset
+    - in a F-MF-T view, they need to share the same queryset - getting the MRO right
+      is essential!
+    - Tables need special logic to render a formset, and need the formset available at
+      construct any "extra" rows.
+    - Formset data need to be the [paged] table_data.  Chicken meet Egg.
+"""
 
 import django_filters.views as filters
 import django_tables2 as tables

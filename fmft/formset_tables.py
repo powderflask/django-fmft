@@ -1,20 +1,22 @@
-# Utilities for integrating tables that render formsets.
-#     Core Challenge:
-#         - Filter, ModelFormset, and Table all need to share the same queryset
-#         - Tables need special logic to render the form elements
-#             and need the formset available to construct any "extra form" rows.
-#         - Formset data needs to be the [paged] table_data.
-#         Chicken meet Egg.
+"""
+Utilities for integrating tables that render formsets.
+    Core Challenge:
+        - Filter, ModelFormset, and Table all need to share the same queryset
+        - Tables need special logic to render the form elements
+            and need the formset available to construct any "extra form" rows.
+        - Formset data needs to be the [paged] table_data.
+        Chicken meet Egg.
 
-#     Solution:
-#         - Subclass "normal" Table class by overriding form field Columns & adding
-#           DELETE column
-#         - Construct table with queryset as usual, and optionally paginate
-#         - Construct formset from table.paginated_rows.data, ensuring formset and table
-#           share queryset
-#         - Append pinned rows for any formset.extra_forms
-#         - Construct a FormAccessor for the formset and retrofit it into the
-#           FormFieldColumns in the table.
+    Solution:
+        - Subclass "normal" Table class by overriding form field Columns & adding
+          DELETE column
+        - Construct table with queryset as usual, and optionally paginate
+        - Construct formset from table.paginated_rows.data, ensuring formset and table
+          share queryset
+        - Append pinned rows for any formset.extra_forms
+        - Construct a FormAccessor for the formset and retrofit it into the
+          FormFieldColumns in the table.
+"""
 
 from __future__ import annotations
 
