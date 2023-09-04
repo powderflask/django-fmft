@@ -1,4 +1,4 @@
-"""Top-level package for Django Filtred-Model-Formset-Table """
+"""Top-level package for Django Filtered-Model-Formset-Table """
 
 __author__ = """Joseph Fall"""
 __email__ = "powderflask@gmail.com"

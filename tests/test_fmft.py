@@ -9,18 +9,10 @@ import django_tables2 as tables
 from django.forms import modelformset_factory
 from django.test import RequestFactory, SimpleTestCase, TestCase
 
-from fmft import utils, views
-from fmft.formset_tables import (
-    FormAccessor,
-    get_formset_table,
-    get_formset_table_kwargs,
-    get_table_queryset,
-)
-
-from .forms import InlineItemForm, ItemForm
-from .models import STATUS_CHOICES, Item, Order
-from .tables import ItemTable
-from .views import (
+from demo.forms import InlineItemForm, ItemForm
+from demo.models import STATUS_CHOICES, Item, Order
+from demo.tables import ItemTable
+from demo.views import (
     DeletableModelFormsetTableView,
     ExtrasModelFormsetTableView,
     PaginatedFilteredModelFormsetTableView,
@@ -29,6 +21,12 @@ from .views import (
     SimpleFilteredModelFormsetView,
     SimpleFilteredTableView,
     SimpleModelFormsetTableView,
+)
+from fmft.formset_tables import (
+    FormAccessor,
+    get_formset_table,
+    get_formset_table_kwargs,
+    get_table_queryset,
 )
 
 # Rendered field content have are dependent on form_field.html
@@ -86,7 +84,8 @@ def create_item_fixture(n, order_name="Dummy Order"):
 
 
 def create_testing_data_fixture():
-    """Create a random set of orders and related items, primarily used to load DB for interactive testing"""
+    """Create a random set of orders and related items, primarily used to load DB for
+    interactive testing"""
     for n, name in zip((11, 5, 3, 7), ("Order A", "Order B", "Order C")):
         create_item_fixture(n, name)
 
@@ -118,12 +117,13 @@ class FilteredTableViewTests(BaseViewTest):
 
     def test_integrity(self):
         """Test the view responds"""
-        # Use this syntax for class-based views.
+        # Use this syntax for class-based views.md.
         response = self.view.as_view()(get_request())
         self.assertEqual(response.status_code, 200)
 
     def test_shared_qs(self):
-        """Check that table and filter share same qs - won't be true for paginated or sorted tables!"""
+        """Check that table and filter share same qs - won't be true for paginated or
+        sorted tables!"""
         response = self.view.as_view()(get_request())
         self.assertIn("table", response.context_data)
         self.assertIn("filter", response.context_data)
@@ -137,7 +137,7 @@ class FilteredModelFormsetViewTests(BaseViewTest):
 
     def test_integrity(self):
         """Test the view responds"""
-        # Use this syntax for class-based views.
+        # Use this syntax for class-based views.md.
         response = self.view.as_view()(get_request())
         self.assertEqual(response.status_code, 200)
 
@@ -166,12 +166,13 @@ class ModelFormsetTableViewTests(BaseViewTest):
 
     def test_integrity(self):
         """Test the view responds"""
-        # Use this syntax for class-based views.
+        # Use this syntax for class-based views.md.
         response = self.view.as_view()(get_request())
         self.assertEqual(response.status_code, 200)
 
     def test_shared_qs(self):
-        """Check that table and formset share same qs - won't be true for paginated or sorted tables!"""
+        """Check that table and formset share same qs - won't be true for paginated or
+        sorted tables!"""
         response = self.view.as_view()(get_request())
         self.assertIn("formset", response.context_data)
         self.assertIn("table", response.context_data)
@@ -180,7 +181,8 @@ class ModelFormsetTableViewTests(BaseViewTest):
         self.assertEqual(formset.queryset, table.data.data)
 
     def test_table_class(self):
-        """the table class used in the view is generated dynamically - check that went well"""
+        """the table class used in the view is generated dynamically - check that went
+        well"""
         response = self.view.as_view()(get_request())
         the_table = response.context_data["table"]
         table_class = type(the_table)
@@ -236,7 +238,8 @@ class ExtrasModelFormsetTableViewTests(BaseViewTest):
 
 
 class ModelFormsetTableViewWithLinkifiedRelationTests(BaseViewTest):
-    """the trick is instance on "extra" forms may have no relation - verify that doesn't break linkify"""
+    """the trick is instance on "extra" forms may have no relation - verify that doesn't
+    break linkify"""
 
     class ModelFormsetTableInlineFormsView(SimpleModelFormsetTableView):
         form_class = InlineItemForm
@@ -303,12 +306,13 @@ class FilteredModelFormsetTableViewTests(BaseViewTest):
 
     def test_integrity(self):
         """Test the view responds"""
-        # Use this syntax for class-based views.
+        # Use this syntax for class-based views.md.
         response = self.view.as_view()(get_request())
         self.assertEqual(response.status_code, 200)
 
     def test_shared_qs(self):
-        """Check that table, filter, and formset all share same qs - won't be true for paginated or sorted tables!"""
+        """Check that table, filter, and formset all share same qs - won't be true for
+        paginated or sorted tables!"""
         response = self.view.as_view()(get_request())
         self.assertIn("formset", response.context_data)
         self.assertIn("table", response.context_data)

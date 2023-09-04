@@ -1,13 +1,16 @@
 """
-    Filtered Model Formset Table views
-        - re-useable integrations of FilterView, ModelFormsetView, and SingleTableMixin
-    Purpose:
-        - sef of abstract class-based views that provide a declarative syntax to hide the integration details
-    Core Problem:
-        - Filters, ModelFormsets, and Tables all need a queryset
-        - in a F-MF-T view, they need to share the same queryset - getting the MRO right is essential!
-        - Tables need special logic to render a formset, and need the formset available at construct any "extra" rows.
-        - Formset data need to be the [paged] table_data.  Chicken meet Egg.
+Filtered Model Formset Table views.md
+    - re-useable integrations of FilterView, ModelFormsetView, and SingleTableMixin
+Purpose:
+    - sef of abstract class-based views.md that provide a declarative syntax to hide
+      the integration details
+Core Problem:
+    - Filters, ModelFormsets, and Tables all need a queryset
+    - in a F-MF-T view, they need to share the same queryset - getting the MRO right
+      is essential!
+    - Tables need special logic to render a formset, and need the formset available at
+      construct any "extra" rows.
+    - Formset data need to be the [paged] table_data.  Chicken meet Egg.
 """
 
 import django_filters.views as filters
@@ -29,23 +32,29 @@ from . import formset_tables
 
 class FilteredTableView(tables.SingleTableMixin, filters.FilterView):
     """
-    Too easy - this one is batteries included.  Thanks django-tables2 and django-filters, you are awesome.
+    Too easy - this one is batteries included.  Thanks django-tables2 and
+    django-filters, you are awesome.
+
     How does it work:
-        - concrete view provides the base queryset
-        - FilterView.get() sets self.object_list = a filtered version of the base queryset
-        - SingleTableMixin looks for self.object_list, thus loading the filtered queryset
-        - Template should render the filterset and the table (see template filtered_table.html
+    - concrete view provides the base queryset
+    - FilterView.get() sets self.object_list = a filtered version of the base queryset
+    - SingleTableMixin looks for self.object_list, thus loading the filtered queryset
+    - Template should render the filterset and the table (see template
+      filtered_table.html)
+
     """
 
     # Minimal configuration:
     filterset_class = None
     table_class = None
-    # queryset, or get_queryset() as defined by MultipleObjectMixin to customize base queryset for filtered data
+    # queryset, or get_queryset() as defined by MultipleObjectMixin to customize base
+    # queryset for filtered data
 
 
 class FilterViewMixin(filters.FilterMixin, MultipleObjectMixin):
     """
-    Logic factored out from BaseFilterView so it can be mixed in, e.g., with a modelformset view
+    Logic factored out from BaseFilterView so it can be mixed in, e.g., with a
+    modelformset view
     """
 
     def configure_filterset(self):
@@ -72,7 +81,8 @@ class FilterViewMixin(filters.FilterMixin, MultipleObjectMixin):
 class BaseModelFormSetView(
     MultipleObjectTemplateResponseMixin, ModelFormSetMixin, ProcessFormSetView
 ):
-    """A Base class that emulates formsets.ModelFormSetView, but without its request handlers"""
+    """A Base class that emulates formsets.ModelFormSetView, but without its request
+    handlers"""
 
     pass
 
@@ -80,14 +90,21 @@ class BaseModelFormSetView(
 class FilteredModelFormsetView(FilterViewMixin, BaseModelFormSetView):
     """
     A Filtered Formset View.
-    Not sure how useful this is without a Table, but hey, maybe you just love writing table template logic :-P
+    Not sure how useful this is without a Table, but hey, maybe you just love writing
+    table template logic :-P
     Core Problem:
-        - need filtered object_list to construct formset, but that logic is buried in FilterView.get()
-    Solution: re-write .get() / .post() so the two views play nicely together, with formset.queryset=filterset.qs
+    - need filtered object_list to construct formset, but that logic is buried in
+      FilterView.get()
+
+    Solution: re-write .get() / .post() so the two views.md play nicely together, with
+    formset.queryset=filterset.qs
+
     How does it work:
-        - FilterViewMixin.configure_filterset duplicates logic from BaseFilterView to build the object_list
-        - custom get(), post() mix that logic in with the get() / post() logic from ModelFormSetView
-            to handle constructing, validating, and saving the modelformset
+    - FilterViewMixin.configure_filterset duplicates logic from BaseFilterView to
+      build_old the object_list
+    - custom get(), post() mix that logic in with the get() / post() logic from
+      ModelFormSetView to handle constructing, validating, and saving the modelformset
+
     """
 
     # Minimal configuration:
@@ -95,7 +112,8 @@ class FilteredModelFormsetView(FilterViewMixin, BaseModelFormSetView):
     filterset_class = None
     form_class = None
     factory_kwargs = dict(extra=0)
-    # queryset, or get_queryset() as defined by MultipleObjectMixin to customize base queryset for filtered data
+    # queryset, or get_queryset() as defined by MultipleObjectMixin to customize base
+    # queryset for filtered data
 
     def get_formset_kwargs(self):
         kwargs = super().get_formset_kwargs()
@@ -116,7 +134,8 @@ class FilteredModelFormsetView(FilterViewMixin, BaseModelFormSetView):
 class BaseModelFormSetSingleTableMixin(BaseFormSetFactory, tables.SingleTableMixin):
     """
     A version of SingleTableMixin that injects the formset into the view's Table class,
-     mixed with a BaseFormSetFactory that fetches formset from table rather than constructing one itself.
+    mixed with a BaseFormSetFactory that fetches formset from table rather than
+    constructing one itself.
     """
 
     model = None
@@ -125,7 +144,8 @@ class BaseModelFormSetSingleTableMixin(BaseFormSetFactory, tables.SingleTableMix
     _formset = None
 
     def get_formset_and_table(self):
-        """Table and formset need to be constructed together - formset needs table's qs, table needs forms"""
+        """Table and formset need to be constructed together - formset needs table's qs,
+        table needs forms"""
         if not (self._table and self._formset):
             formset_class = self.get_formset()
             formset_kwargs = self.get_formset_kwargs()
@@ -160,18 +180,22 @@ class BaseModelFormSetSingleTableMixin(BaseFormSetFactory, tables.SingleTableMix
 
     @property
     def the_formset(self):
-        """Critically, there may only be one formset built with data from the one table"""
+        """Critically, there may only be one formset built with data from the one
+        table."""
         formset, _ = self.get_formset_and_table()
         return formset
 
     def construct_formset(self):
-        """Fake! don't construct another formset, just use the one integrated with the table."""
+        """Fake! don't construct another formset, just use the one integrated with
+        the table."""
         return self.the_formset
 
     def get_table_data(self):
-        """Override to use the view's object_list, which we assume is available, from somewhere"""
-        # Note: don't use this qs to populate formset - the table further sorts/paginates this queryset,
-        #       so essential that the formset uses the table's modified version.
+        """Override to use the view's object_list, which we assume is available,
+        from somewhere"""
+        # Note: don't use this qs to populate formset - the table further
+        #       sorts/paginates this queryset, so essential that the formset uses the
+        #       table's modified version.
 
         # a formset qs must be ordered, and BaseFormSet will add order_by clause if not,
         #  which will crash if the table has already added a pagination slice.
@@ -185,10 +209,14 @@ class BaseModelFormSetSingleTableMixin(BaseFormSetFactory, tables.SingleTableMix
 class ModelFormsetTableView(BaseModelFormSetSingleTableMixin, ModelFormSetView):
     """
     A ModelFormset View loaded into a table.
-    Mix-and-match form fields with non-form fields and customize layout in code instead of in template logic.
+    Mix-and-match form fields with non-form fields and customize layout in code instead
+    of in template logic.
+
     How does it work:
-        - form defines which table fields are rendered as form fields, other table columns rendered as usual;
-            ProcessFormsetView does the heavy lifting in post()
+    - form defines which table fields are rendered as form fields, other table columns
+      rendered as usual;
+    ProcessFormsetView does the heavy lifting in post()
+
     """
 
     # Minimal configuration:
@@ -196,9 +224,11 @@ class ModelFormsetTableView(BaseModelFormSetSingleTableMixin, ModelFormSetView):
     table_class = None
     form_class = None
     factory_kwargs = dict(extra=0)
-    # queryset, or get_queryset() as defined by MultipleObjectMixin to customize base queryset for filtered data
+    # queryset, or get_queryset() as defined by MultipleObjectMixin to customize base
+    # queryset for filtered data
     # Note: A ModelFormset queryset MUST be ordered;
-    #       a default ordering will be applied if it is not.  Recommend: add order_by clause to view's base queryset.
+    #       a default ordering will be applied if it is not.  Recommend: add order_by
+    #       clause to view's base queryset.
     # if you want to export data, mixin an ExportMixin as usual.
 
 
@@ -209,8 +239,10 @@ class FilteredModelFormsetTableView(
     The whole enchilada - A Filtered Model Formset View loaded into a table.
     Mix and match from above to get it all.
     How does it work:
-        - form defines which table fields are rendered as form fields, other table columns rendered as usual;
-            ProcessFormsetView does the heavy lifting in post()
+    form defines which table fields are rendered as form fields, other table columns
+    rendered as usual;
+    ProcessFormsetView does the heavy lifting in post()
+
     """
 
     # Minimal configuration:
@@ -219,7 +251,9 @@ class FilteredModelFormsetTableView(
     table_class = None
     form_class = None
     factory_kwargs = dict(extra=0)
-    # queryset, or get_queryset() as defined by MultipleObjectMixin to customize base queryset for filtered data
+    # queryset, or get_queryset() as defined by MultipleObjectMixin to customize base
+    # queryset for filtered data
     # Note: A ModelFormset queryset MUST be ordered;
-    #       a default ordering will be applied if it is not.  Recommend: add order_by clause to view's base queryset.
+    #       a default ordering will be applied if it is not.  Recommend: add order_by
+    #       clause to view's base queryset.
     # if you want to export data, mixin an ExportMixin as usual.

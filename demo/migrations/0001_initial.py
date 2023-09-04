@@ -114,7 +114,7 @@ class Migration(migrations.Migration):
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
                         related_name="items",
-                        to="fmft_tests.order",
+                        to="demo.order",
                     ),
                 ),
             ],
@@ -138,7 +138,7 @@ class Migration(migrations.Migration):
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
                         related_name="contacts",
-                        to="fmft_tests.order",
+                        to="demo.order",
                     ),
                 ),
             ],

@@ -1,6 +1,6 @@
 [
 {
-  "model": "fmft_tests.order",
+  "model": "demo.order",
   "pk": 1,
   "fields": {
     "name": "Order A",
@@ -11,7 +11,7 @@
   }
 },
 {
-  "model": "fmft_tests.order",
+  "model": "demo.order",
   "pk": 2,
   "fields": {
     "name": "Order B",
@@ -22,7 +22,7 @@
   }
 },
 {
-  "model": "fmft_tests.order",
+  "model": "demo.order",
   "pk": 3,
   "fields": {
     "name": "Order C",
@@ -33,7 +33,7 @@
   }
 },
 {
-  "model": "fmft_tests.item",
+  "model": "demo.item",
   "pk": 1,
   "fields": {
     "name": "Item 0",
@@ -45,7 +45,7 @@
   }
 },
 {
-  "model": "fmft_tests.item",
+  "model": "demo.item",
   "pk": 2,
   "fields": {
     "name": "Item 1",
@@ -57,7 +57,7 @@
   }
 },
 {
-  "model": "fmft_tests.item",
+  "model": "demo.item",
   "pk": 3,
   "fields": {
     "name": "Item 2",
@@ -69,7 +69,7 @@
   }
 },
 {
-  "model": "fmft_tests.item",
+  "model": "demo.item",
   "pk": 4,
   "fields": {
     "name": "Item 3",
@@ -81,7 +81,7 @@
   }
 },
 {
-  "model": "fmft_tests.item",
+  "model": "demo.item",
   "pk": 5,
   "fields": {
     "name": "Item 4",
@@ -93,7 +93,7 @@
   }
 },
 {
-  "model": "fmft_tests.item",
+  "model": "demo.item",
   "pk": 6,
   "fields": {
     "name": "Item 5",
@@ -105,7 +105,7 @@
   }
 },
 {
-  "model": "fmft_tests.item",
+  "model": "demo.item",
   "pk": 7,
   "fields": {
     "name": "Item 6",
@@ -117,7 +117,7 @@
   }
 },
 {
-  "model": "fmft_tests.item",
+  "model": "demo.item",
   "pk": 8,
   "fields": {
     "name": "Item 7",
@@ -129,7 +129,7 @@
   }
 },
 {
-  "model": "fmft_tests.item",
+  "model": "demo.item",
   "pk": 9,
   "fields": {
     "name": "Item 8",
@@ -141,7 +141,7 @@
   }
 },
 {
-  "model": "fmft_tests.item",
+  "model": "demo.item",
   "pk": 10,
   "fields": {
     "name": "Item 9",
@@ -153,7 +153,7 @@
   }
 },
 {
-  "model": "fmft_tests.item",
+  "model": "demo.item",
   "pk": 11,
   "fields": {
     "name": "Item 10",
@@ -165,7 +165,7 @@
   }
 },
 {
-  "model": "fmft_tests.item",
+  "model": "demo.item",
   "pk": 12,
   "fields": {
     "name": "Item 0",
@@ -177,7 +177,7 @@
   }
 },
 {
-  "model": "fmft_tests.item",
+  "model": "demo.item",
   "pk": 13,
   "fields": {
     "name": "Item 1",
@@ -189,7 +189,7 @@
   }
 },
 {
-  "model": "fmft_tests.item",
+  "model": "demo.item",
   "pk": 14,
   "fields": {
     "name": "Item 2",
@@ -201,7 +201,7 @@
   }
 },
 {
-  "model": "fmft_tests.item",
+  "model": "demo.item",
   "pk": 15,
   "fields": {
     "name": "Item 3",
@@ -213,7 +213,7 @@
   }
 },
 {
-  "model": "fmft_tests.item",
+  "model": "demo.item",
   "pk": 16,
   "fields": {
     "name": "Item 4",
@@ -225,7 +225,7 @@
   }
 },
 {
-  "model": "fmft_tests.item",
+  "model": "demo.item",
   "pk": 17,
   "fields": {
     "name": "Item 0",
@@ -237,7 +237,7 @@
   }
 },
 {
-  "model": "fmft_tests.item",
+  "model": "demo.item",
   "pk": 18,
   "fields": {
     "name": "Item 1",
@@ -249,7 +249,7 @@
   }
 },
 {
-  "model": "fmft_tests.item",
+  "model": "demo.item",
   "pk": 19,
   "fields": {
     "name": "Item 2",
