@@ -1,6 +1,7 @@
 from invoke import task
 
 from . import docs as docs_task
+from . import clean as clean_task
 
 
 @task
@@ -11,11 +12,10 @@ def clean(c, docs=False):
         docs_task.clean(c)
 
 
-@task(clean)
+@task(pre=[clean], post=[clean_task.clean_all])
 def build(c, docs=False):
     """Clean up and build a new distribution [and docs]"""
     c.run("python -m build")
-    c.run("invoke clean.all")
     if docs:
         docs_task.build(c)
 

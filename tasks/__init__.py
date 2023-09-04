@@ -1,4 +1,4 @@
-from invoke import Collection, task
+from invoke import Collection
 
 from . import clean, deps, docs, pypi
 

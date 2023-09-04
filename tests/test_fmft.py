@@ -7,7 +7,7 @@ from decimal import Decimal as D
 
 import django_tables2 as tables
 from django.forms import modelformset_factory
-from django.test import RequestFactory, SimpleTestCase, TestCase
+from django.test import RequestFactory, TestCase
 
 from demo.forms import InlineItemForm, ItemForm
 from demo.models import STATUS_CHOICES, Item, Order
@@ -265,7 +265,6 @@ class DeletableModelFormsetTableViewTests(BaseViewTest):
         self.assertTrue(formset.can_delete)
         self.assertTrue("DELETE" in formset[0].fields)
         self.assertTrue("DELETE" in [c.name for c in table.columns])
-        instance = table.data[0]
         delete_input = DELETE_INPUT_TAG.format(n=0)
         self.assertInHTML(
             delete_input,
