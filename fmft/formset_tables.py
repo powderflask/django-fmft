@@ -94,9 +94,10 @@ def get_formset_table_kwargs(formset, **kwargs):
     Returns:
         dict: A dictionary containing the modified keyword arguments for the table.
     """
-    extra_columns = dict(get_extra_columns(formset)) | dict(
-        kwargs.get("extra_columns", [])
-    )
+    extra_columns = {
+        **dict(get_extra_columns(formset)),
+        **dict(kwargs.get("extra_columns", [])),
+    }
     kwargs["extra_columns"] = tuple(extra_columns.items())
     return kwargs
 
@@ -439,7 +440,10 @@ def get_table_class(
         Type[tables.Table]: A subclass of the base Table class.
 
     """
-    table_columns = dict(extra_columns) | base.base_columns
+    table_columns = {
+        **dict(extra_columns),
+        **base.base_columns,
+    }
     visible_column_fields = tuple(
         name for name in forms.visible_fields if name in table_columns
     )
