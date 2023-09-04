@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "django_fmft"
 version = "0.1.0"
-requires-python = ">=3.9, <4.0"
+requires-python = ">=3.8, <4.0"
 description = "Class-based Views that integrate django-filters and django-tables2 with model formsets."
 readme = "README.md"
 license = {file = "LICENSE"}
@@ -41,6 +41,7 @@ docs = [
     "sphinx",
     "sphinx-rtd-theme",
     "myst-parser",
+    "sphinxcontrib_django",
 ]
 style = [
     "black",
@@ -60,6 +61,7 @@ utils = [
     "bumpver",
     "build",
     "twine",
+    "pip-tools",
 ]
 
 [project.urls]
@@ -87,9 +89,8 @@ push = true
 
 [tool.bumpver.file_patterns]
 "pyproject.toml" = ['version = "{version}"']
-"README.md" = ['Version: {version}']
 "fmft/__init__.py" = ['__version__ = "{version}"']
-"docs/source/conf.py" = ["version = '{version}'", "release = '{version}'"]
+"docs/source/conf.py" = ['version = "{version}"', 'release = "{version}"']
 
 [tool.black]
 target-version = ["py39","py310","py311"]

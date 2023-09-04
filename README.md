@@ -2,20 +2,15 @@
 
 [![PyPI Version](https://img.shields.io/pypi/v/django_fmft.svg)][1]
 [![Docs Status](https://readthedocs.org/projects/django-fmft/badge/?version=latest)][2]
-
-Version: 0.1.0
+[![Tests](https://github.com/powderflask/django-fmft/actions/workflows/pytest.yaml/badge.svg)](https://github.com/powderflask/django-fmft/actions/workflows/pytest.yaml)
 
 Re-usable Class-Based Views that integrate [django-filter][3] and
 [django-tables2][4] with model formsets. Render and process a user-filterable, 
 user-sortable modelformset in a table with just a few lines of code. Rainbows and
 unicorns!
 
-Documentation: <https://django-fmft.readthedocs.io>
-
-Django Filtered Model Formset Tables is free software distributed under the MIT License.
-
 [1]: <https://pypi.python.org/pypi/django_fmft>
-[2]: <https://django-fmft.readthedocs.io/en/latest/?version=latest>
+[2]: <https://django-fmft.readthedocs.io/en/latest>
 [3]: <https://django-filter.readthedocs.io/en/stable/index.html>
 [4]: <https://django-tables2.readthedocs.io/en/latest/index.html>
 
@@ -24,19 +19,9 @@ Django Filtered Model Formset Tables is free software distributed under the MIT 
 -   Use a [ModelForm][5] / [formset][6] to define editable fields, add / delete, extra 
     forms, etc.
 -   Use a [FilterSet][7] to define filters the formset's queryset
--   Use a [Table][8] to lay out each record, define paging, sorting, etc.
+-   Use a [Table][8] to lay out the formset, define paging, sorting, etc.
 -   Render the [Table][9] with its filtered [formset][10] in just a few lines of 
     template code
-
-```{Note}
-Column options `linkify` and `empty_values` are overridden for columns
-rendered as form fields
-
-> -   `linkify` is incompatible with a form field representation, so is
->     disabled;
-> -   to ensure \'empty\' form fields are rendered, `empty_values` is
->     set to () (i.e., render all values)
-```
 
 [5]: <https://docs.djangoproject.com/en/dev/topics/forms/modelforms/>
 [6]: <https://docs.djangoproject.com/en/dev/topics/forms/modelforms/#model-formsets>
@@ -81,25 +66,42 @@ rendered as form fields
 [18]: <https://django-extra-views.readthedocs.io/en/latest/pages/formset-views.html#modelformsetview>
 [19]: <https://django-tables2.readthedocs.io/en/latest/pages/api-reference.html#views-view-mixins-and-paginators>
 
+*Note:*
+Table.Column options `linkify` and `empty_values` are overridden for columns
+rendered as form fields
+ -   `linkify` is incompatible with a form field representation, so is disabled; 
+ -   to ensure \'empty\' form fields are rendered, `empty_values` is set to () (i.e., render all values)
+
 ## Quick Start
 
-1. Install the django-fmft package from PyPI
+1. Install the `django-fmft` package from PyPI
     ```bash
     $ pip install django-fmft
     ```
 
     > For other installation methods see [*Installation*](docs/source/installation.md).
 
-2. Add `'django_fmft'` to `INSTALLED_APPS`:
+2. Add `'fmft'` to `INSTALLED_APPS`:
     ```python
     INSTALLED_APPS = [
         ...,
-        'django_fmft',
-        ...,
+        "fmft",
+        "django_tables2",
+        "django_filters",
+        "extra_views",   # optional
+           ...,
     ]
     ```
 
-### Try Out the Test App
+## Get Me Some of That
+* [Source Code](https://github.com/powderflask/django-fmft)
+* [Read The Docs](https://django-fmft.readthedocs.io/en/latest/)
+* [Issues](https://github.com/powderflask/django-fmft/issues)
+* [PyPI](https://pypi.org/project/django-fmft)
+
+[MIT License](https://github.com/powderflask/django-fmft/blob/master/LICENSE)
+
+### Check Out the Demo App
 
 1. `pip install -e git+https://github.com/powderflask/django-fmft.git#egg=django-fmft`
 2. `python manage.py migrate demo`
@@ -107,7 +109,11 @@ rendered as form fields
 4. `python manage.py runserver`
 
 
-## Credits
+### Acknowledgments
+Special thanks to BC Hydro, [Chartwell](https://crgl.ca/),
+and all [Contributors](https://github.com/powderflask/django_document_catalogue/graphs/contributors)
+
+#### Technology Colophon
 
 This package just glues together the amazing functionality provided by 
 [django-filter][20], [django-tables2][21], and [django-extra-views][22].
@@ -115,3 +121,36 @@ This package just glues together the amazing functionality provided by
 [20]: <https://django-filter.readthedocs.io/en/stable/index.html>
 [21]: <https://django-tables2.readthedocs.io/en/latest/index.html>
 [22]: <https://django-extra-views.readthedocs.io/en/latest/index.html>
+
+    Python3, Django, HTML5, CSS3, JavaScript
+
+## For Developers
+ * `> pip install -r reqirements_dev.txt`
+
+### Tests
+ * `> pytest`
+ * `> tox`
+
+### Code Style
+ * `> isort`
+ * `> black`
+ * `> flake8`
+
+### Versioning
+ * [Semantic Versioning](https://semver.org/)
+ * `> bumpver` 
+
+### Docs
+ * [Sphinx](https://www.sphinx-doc.org/en/master/) + [MyST parser](https://myst-parser.readthedocs.io/en/latest/intro.html)
+ * [Read The Docs](https://readthedocs.org/projects/django-document-catalogue/)
+
+### Build / Deploy Automation
+ * [invoke](https://www.pyinvoke.org/)
+   * `> invoke -l` 
+ * [GitHub Actions](https://docs.github.com/en/actions) (see [.github/workflows](https://github.com/powderflask/django_document_catalogue/tree/master/.github/workflows))
+ * [GitHub Webhooks](https://docs.github.com/en/webhooks)  (see [settings/hooks](https://github.com/powderflask/django_document_catalogue/settings/hooks))
+
+### TODO
+My wish list...
+ * write test for case where form field is not included in table
+   E.g. as when DELETE field not included in export table
