@@ -41,7 +41,6 @@ docs = [
     "sphinx",
     "sphinx-rtd-theme",
     "myst-parser",
-    "sphinxcontrib_django",
 ]
 style = [
     "black",
@@ -62,6 +61,7 @@ utils = [
     "build",
     "twine",
     "pip-tools",
+    "sphinxcontrib_django",
 ]
 
 [project.urls]
