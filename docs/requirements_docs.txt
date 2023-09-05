@@ -20,6 +20,7 @@ django==4.2.4
     #   django-filter
     #   django-fmft (pyproject.toml)
     #   django-tables2
+    #   sphinxcontrib-django
 django-extra-views==0.14.0
     # via django-fmft (pyproject.toml)
 django-filter==23.2
@@ -55,6 +56,8 @@ myst-parser==2.0.0
     # via django-fmft (pyproject.toml)
 packaging==23.1
     # via sphinx
+pprintpp==0.4.0
+    # via sphinxcontrib-django
 pygments==2.16.1
     # via sphinx
 pyyaml==6.0.1
@@ -70,6 +73,7 @@ sphinx==6.2.1
     #   sphinx-rtd-theme
     #   sphinxcontrib-applehelp
     #   sphinxcontrib-devhelp
+    #   sphinxcontrib-django
     #   sphinxcontrib-htmlhelp
     #   sphinxcontrib-jquery
     #   sphinxcontrib-qthelp
@@ -80,6 +84,8 @@ sphinxcontrib-applehelp==1.0.6
     # via sphinx
 sphinxcontrib-devhelp==1.0.4
     # via sphinx
+sphinxcontrib-django==2.4
+    # via django-fmft (pyproject.toml)
 sphinxcontrib-htmlhelp==2.0.3
     # via sphinx
 sphinxcontrib-jquery==4.1
