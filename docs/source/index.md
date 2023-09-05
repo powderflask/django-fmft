@@ -8,7 +8,5 @@ README_REF
 installation
 example_views
 MODULES
-authors
-contributing
 history
 ```
