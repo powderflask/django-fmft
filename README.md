@@ -111,7 +111,7 @@ rendered as form fields
 
 ### Acknowledgments
 Special thanks to BC Hydro, [Chartwell](https://crgl.ca/),
-and all [Contributors](https://github.com/powderflask/django_document_catalogue/graphs/contributors)
+and all [Contributors](https://github.com/powderflask/django-fmft/graphs/contributors)
 
 #### Technology Colophon
 
@@ -125,30 +125,43 @@ This package just glues together the amazing functionality provided by
     Python3, Django, HTML5, CSS3, JavaScript
 
 ## For Developers
- * `> pip install -r reqirements_dev.txt`
+   ```bash
+   $  pip install -r reqirements_dev.txt
+   ```
 
 ### Tests
- * `> pytest`
- * `> tox`
+   ```bash
+   $ pytest
+   ```
+or
+   ```bash
+   $ tox
+   ```
 
-### Code Style
- * `> isort`
- * `> black`
- * `> flake8`
+### Code Style / Linting
+   ```bash
+   $ isort
+   $ black
+   $ flake8
+   ```
 
 ### Versioning
  * [Semantic Versioning](https://semver.org/)
- * `> bumpver` 
+   ```bash
+   $ bumpver show
+   ```
 
 ### Docs
  * [Sphinx](https://www.sphinx-doc.org/en/master/) + [MyST parser](https://myst-parser.readthedocs.io/en/latest/intro.html)
- * [Read The Docs](https://readthedocs.org/projects/django-document-catalogue/)
+ * [Read The Docs](https://readthedocs.org/projects/django-fmft/)
 
 ### Build / Deploy Automation
  * [invoke](https://www.pyinvoke.org/)
-   * `> invoke -l` 
- * [GitHub Actions](https://docs.github.com/en/actions) (see [.github/workflows](https://github.com/powderflask/django_document_catalogue/tree/master/.github/workflows))
- * [GitHub Webhooks](https://docs.github.com/en/webhooks)  (see [settings/hooks](https://github.com/powderflask/django_document_catalogue/settings/hooks))
+   ```bash
+   $ invoke -l
+   ```
+ * [GitHub Actions](https://docs.github.com/en/actions) (see [.github/workflows](https://github.com/powderflask/django-fmft/tree/master/.github/workflows))
+ * [GitHub Webhooks](https://docs.github.com/en/webhooks)  (see [settings/hooks](https://github.com/powderflask/django-fmft/settings/hooks))
 
 ### TODO
 My wish list...
