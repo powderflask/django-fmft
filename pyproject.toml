@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "django_fmft"
-version = "0.2.0"
+version = "0.3.0"
 requires-python = ">=3.8, <4.0"
 description = "Class-based Views that integrate django-filters and django-tables2 with model formsets."
 readme = "README.md"
@@ -80,7 +80,7 @@ include-package-data = true  # True by default, declarations in MANIFEST.in
 include = ["fmft", "fmft.*"]
 
 [tool.bumpver]
-current_version = "0.2.0"
+current_version = "0.3.0"
 version_pattern = "MAJOR.MINOR.PATCH"
 commit_message = "Bump version: {old_version} --> {new_version}"
 commit = true
