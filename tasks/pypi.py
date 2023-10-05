@@ -1,5 +1,4 @@
 from invoke import task
-
 from . import docs as docs_task
 from . import clean as clean_task
 
@@ -26,10 +25,13 @@ def get_version(c):
     c.run("bumpver show --no-fetch")
 
 
-@task
-def upload(c, repo="testpypi"):
+@task(help={
+    "api-token": "Obtain an API key from https://pypi.org/manage/account/",
+    "repo": "Specify:  pypi  for a production release.",
+})
+def upload(c, api_token, repo="testpypi"):
     """Upload build to given PyPI repo"""
-    c.run(f"twine upload --repository {repo} dist/*")
+    c.run(f"twine upload --repository {repo} -u __token__ -p {api_token} dist/*")
 
 
 @task(help={"dist": "Name of distribution file under dist/ directory to check."})
@@ -39,9 +41,13 @@ def check(c, dist):
 
 
 @task(pre=[clean], post=[clean_task.clean_all],
-      help={"repo": "Specify:  pypi  for a production release."})
-def release(c, repo="testpypi"):
+      help={
+    "repo": "Specify:  pypi  for a production release.",
+          "api-token": "Override config.pypi.api_token, obtained from https://pypi.org/manage/account/",
+      })
+def release(c, repo="testpypi", api_token=None):
     """Build release and upload to PyPI"""
+    api_token = api_token or c.config.pypi[repo].api_token
     print("Fetching version...")
     get_version(c)
     if input("Continue? (y/n): ").lower()[0] != "y":
@@ -50,5 +56,5 @@ def release(c, repo="testpypi"):
     print("Building new release...")
     build(c)
     print(f"Uploading release to {repo}...")
-    upload(c, repo)
+    upload(c, api_token, repo)
     print("Success! Your package has been released.")
