@@ -83,6 +83,7 @@ class BaseModelFormSetView(
 ):
     """A Base class that emulates formsets.ModelFormSetView, but without its request
     handlers"""
+    formset_class = formset_tables.BaseModelFormSet
 
     pass
 
@@ -140,6 +141,7 @@ class BaseModelFormSetSingleTableMixin(BaseFormSetFactory, tables.SingleTableMix
 
     model = None
     request = None
+    formset_class = formset_tables.BaseModelFormSet
     _table = None
     _formset = None
 

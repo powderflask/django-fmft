@@ -1,0 +1,11 @@
+{# Render any non-field form errors as a table row #}
+{% if form.non_field_errors %}
+    <tr class="form-errors">
+      <td colspan="{% if colspan %}{{ colspan }}{% else %}{{ form.fields|length }}{% endif %}">
+        {% if form_error_title %}<h5>{{ form_error_title }}</h5>{% endif %}
+        <ul>
+            {{ form.non_field_errors|unordered_list }}
+        </ul>
+      </td>
+    </tr>
+{% endif %}

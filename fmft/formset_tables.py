@@ -33,6 +33,15 @@ from django.template.loader import get_template
 FormMap = Callable[[object], django.forms.Form]
 
 
+class BaseModelFormSet(django.forms.models.BaseModelFormSet):
+    """Extends BaseModelFormSet to add non-form error report suited to formsets displayed in a table"""
+    def all_non_field_errors(self):
+        error_list = self.non_form_errors().copy()
+        for form in self:
+            error_list.extend(form.non_field_errors())
+        return error_list
+
+
 # Queryset: get the paged data used by a bound table
 
 

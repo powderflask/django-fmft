@@ -16,6 +16,9 @@
         </thead>
         <tbody>
         {% for form in formset %}
+            {% if form_show_errors and not form.is_extra %}
+                {% include "fmft/form_non_field_errors_tr.html" %}
+            {% endif %}
             <tr>
                 {% for field in form %}
                     <td>{% include 'fmft/form_field.html' %}</td>
