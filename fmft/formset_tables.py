@@ -413,7 +413,7 @@ class FormFieldsColumn(ExtensibleTemplateColumn):
         """
         config = dict(
             verbose_name=other.verbose_name,
-            accessor=str(other.accessor),
+            accessor=str(other.accessor) if other.accessor else None,
             default=other._default,  # HACK - access to table protected member
             visible=other.visible,
             orderable=other.orderable,

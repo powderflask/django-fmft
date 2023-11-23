@@ -163,6 +163,10 @@ or
  * [GitHub Actions](https://docs.github.com/en/actions) (see [.github/workflows](https://github.com/powderflask/django-fmft/tree/master/.github/workflows))
  * [GitHub Webhooks](https://docs.github.com/en/webhooks)  (see [settings/hooks](https://github.com/powderflask/django-fmft/settings/hooks))
 
+### Known Issues
+ * hidden form fields are rendered in first form field column - can't have dynamically hidden fields,
+   hidden on some rows while visible in others, without a little magic.
+
 ### TODO
 My wish list...
  * write test for case where form field is not included in table
