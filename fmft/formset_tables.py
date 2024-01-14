@@ -372,9 +372,14 @@ class FormFieldsColumn(ExtensibleTemplateColumn):
             dict: The context dictionary.
         """
         context = super().get_row_context(record, table, value, bound_column, bound_row)
-        form = self.forms(record)
-        fields = (bound_column.name,) if self.form_fields is None else self.form_fields
-        context["fields"] = tuple(form[f] for f in fields)
+        try:
+            form = self.forms(record)
+            fields = (bound_column.name,) if self.form_fields is None else self.form_fields
+            context["fields"] = tuple(form[f] for f in fields)
+        except KeyError:
+            # if no forms exist for this record, we can safely fall back to display row without form fields.
+            # this could arise from a concurrency issue (queryset is larger than formset), don't crash.
+            pass
         return context
 
     def value(self, record, value):
