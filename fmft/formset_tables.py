@@ -374,7 +374,9 @@ class FormFieldsColumn(ExtensibleTemplateColumn):
         context = super().get_row_context(record, table, value, bound_column, bound_row)
         try:
             form = self.forms(record)
-            fields = (bound_column.name,) if self.form_fields is None else self.form_fields
+            fields = (
+                (bound_column.name,) if self.form_fields is None else self.form_fields
+            )
             context["fields"] = tuple(form[f] for f in fields)
         except KeyError:
             # if no forms exist for this record, we can safely fall back to display row without form fields.
@@ -423,9 +425,9 @@ class FormFieldsColumn(ExtensibleTemplateColumn):
             visible=other.visible,
             orderable=other.orderable,
             attrs=other.attrs,
-            order_by=None
-            if other.order_by is None
-            else tuple(other.order_by),  # Coupling to table internal API
+            order_by=(
+                None if other.order_by is None else tuple(other.order_by)
+            ),  # Coupling to table internal API
             # empty_values=(),  # Don't "inherit" from other column - empty form fields
             # should still be rendered
             localize=other.localize,

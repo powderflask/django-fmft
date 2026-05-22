@@ -119,9 +119,9 @@ class FilteredModelFormsetView(FilterViewMixin, BaseModelFormSetView):
 
     def get_formset_kwargs(self):
         kwargs = super().get_formset_kwargs()
-        kwargs[
-            "queryset"
-        ] = self.object_list  # use filterset.qs as the formset queryset
+        kwargs["queryset"] = (
+            self.object_list
+        )  # use filterset.qs as the formset queryset
         return kwargs
 
     def get(self, request, *args, **kwargs):
