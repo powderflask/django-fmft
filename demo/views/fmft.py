@@ -1,6 +1,7 @@
 """
 Filtered ModelFormset Table Views
 """
+
 from fmft import views
 
 from ..filters import ItemFilterSet
@@ -18,9 +19,9 @@ class SimpleFilteredTableView(views.FilteredTableView):
 
     def get_table_kwargs(self):
         kwargs = super().get_table_kwargs()
-        kwargs[
-            "empty_text"
-        ] = "No Items were found matching given filter criteria. Revise your filter."
+        kwargs["empty_text"] = (
+            "No Items were found matching given filter criteria. Revise your filter."
+        )
         return kwargs
 
 
@@ -67,9 +68,9 @@ class SimpleFilteredModelFormsetTableView(views.FilteredModelFormsetTableView):
 
     def get_table_kwargs(self):
         kwargs = super().get_table_kwargs()
-        kwargs[
-            "empty_text"
-        ] = "No Items were found matching given filter criteria. Tevise your filter."
+        kwargs["empty_text"] = (
+            "No Items were found matching given filter criteria. Tevise your filter."
+        )
         return kwargs
 
 

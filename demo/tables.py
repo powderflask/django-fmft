@@ -1,6 +1,7 @@
 """
 Tables used for testing
 """
+
 import django_tables2 as tables
 
 from .models import Item

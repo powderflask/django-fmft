@@ -1,6 +1,7 @@
 """
-    Test suite for Filtered-ModelFormset-Table (FMFT) package.
+Test suite for Filtered-ModelFormset-Table (FMFT) package.
 """
+
 import random
 import uuid
 from decimal import Decimal as D
